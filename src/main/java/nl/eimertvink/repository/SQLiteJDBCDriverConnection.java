@@ -1,9 +1,12 @@
-package nl.eimertvink.salaryapi;
+package nl.eimertvink.repository;
+
+import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+@Repository
 public class SQLiteJDBCDriverConnection {
     /*
      * connect to the salaries.db db
