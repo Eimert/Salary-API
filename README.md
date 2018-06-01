@@ -1,13 +1,22 @@
 # Salary-API
 
+Personal project to learn Java and Spring Boot. Displays open data of the City of Chicago. Dataset with Employee Names, Salaries and Position Title. Data from May 2017.<br>
 
-Open data of the City of Chicago. Dataset with Employee Names, Salaries and Position Title. Data from May 2017.
-<br>
 
-[data source](https://data.cityofchicago.org/Administration-Finance/Current-Employee-Names-Salaries-and-Position-Title/xzkq-xp2w)<br>
+## Setup
+- `git clone` this repo. 
+- Import the project into your favourite IDE. 
+- Build and run the project. 
 
-## Usage
-`git clone` this repo into your favourite IDE. Build the project. Run the project. Spring will launch the web app and starts listening on port 8080. Next, visit [localhost:8080](http://localhost:8080) to see the app :). 
+Spring will launch the web app and starts listening on port 8484. Visit [localhost:8484](http://localhost:8484) to open the app :). 
 
 ## Technology
+Java 8<br>
+Spring Boot<br>
+Spring Dependency Injection<br>
+SQLite db<br>
 Spring REST API (future)<br>
+
+## Data source
+[data source](https://data.cityofchicago.org/Administration-Finance/Current-Employee-Names-Salaries-and-Position-Title/xzkq-xp2w)<br>
+
