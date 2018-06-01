@@ -1,6 +1,6 @@
 package nl.eimertvink;
 
-import nl.eimertvink.repository.EmployeeRepository;
+import nl.eimertvink.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
@@ -18,12 +18,12 @@ public class MainController {
     }
 
     @Autowired
-    private EmployeeRepository employeeRepository;
+    private EmployeeService employeeservice;
 
     @RequestMapping("/topinternalearner")
     @ResponseBody
     public String topInternalEarner() {
-        return "<html><body> City of Chicago' Top Internal Earner: " + employeeRepository.topInternalEarner() + " <br> <a href='/'>back to home</a>  </body></html>";
+        return "<html><body> City of Chicago' Top Internal Earner: " + employeeservice.topInternalEarner() + " <br> <a href='/'>back to home</a>  </body></html>";
     }
 
 }

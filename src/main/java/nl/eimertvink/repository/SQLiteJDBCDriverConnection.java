@@ -8,6 +8,9 @@ import java.sql.SQLException;
 
 @Repository
 public class SQLiteJDBCDriverConnection {
+//    @Autowired
+//    private ConfigProperties configproperties;
+
     /*
      * connect to the salaries.db db
      */
@@ -15,6 +18,8 @@ public class SQLiteJDBCDriverConnection {
         Connection conn = null;
         try {
             String url = "jdbc:sqlite:salaries.db";
+//            String url = SQLiteJDBCDriverConnection.url;
+//            String url = "jdbc:sqlite:salaries.db";
 
             conn = DriverManager.getConnection(url);
             System.out.println("Connection to SQLite has been established.");

@@ -13,8 +13,14 @@ import java.util.List;
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
-    @Autowired
+//    @Autowired
     private EmployeeRepository employeeRepository;
+
+    @Autowired
+    public void setEmployeeRepository(EmployeeRepository employeeRepository) {
+        System.out.println("We are using setter injection");
+        this.employeeRepository = employeeRepository;
+    }
 
     @Override
     public List<Employee> findAll() {
@@ -24,7 +30,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public String topInternalEarner() {
-        return null;
+        return employeeRepository.topInternalEarner();
     }
 
 
