@@ -16,7 +16,7 @@ import java.util.List;
 public class SQLiteEmployeeRepositoryImpl implements EmployeeRepository {
 
     @Override
-    public List<Employee> findAll() {
+    public List<Employee> findMe() {
         List<Employee> employees = new ArrayList<>();
 
         Employee employee = new Employee();
@@ -49,4 +49,31 @@ public class SQLiteEmployeeRepositoryImpl implements EmployeeRepository {
         return resultArray.toString();
 //        return ArrayUtil.arrayToString(resultArray);
     }
+
+    /*
+     * What is a better return type: List<String> or List<Employee> (of objects)?
+     */
+    @Override
+    public List<Employee> listAllEmployees() {
+        String sql = "select name, position, department, (CAST(REPLACE(REPLACE(IFNULL(Salary,0),',',''),'$','') as DECIMAL(10,2))) AS SALARY from salaries;";
+        Connection conn = SQLiteJDBCDriverConnection.connect();
+        List<Employee> resultArray = new ArrayList<>();
+        try (Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+
+            // loop through the result set
+            while (rs.next()) {
+                resultArray.add(new Employee(new String("Name"), new String("POSITION"), new String("DEPARTMENT"), new Float("SALARY")));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            SQLiteJDBCDriverConnection.close(conn);
+        }
+
+        return resultArray; //.toString();
+//        return ArrayUtil.arrayToString(resultArray);
+    }
+
+
 }

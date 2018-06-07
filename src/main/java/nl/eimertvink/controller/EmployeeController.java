@@ -1,24 +1,27 @@
-package nl.eimertvink;
+package nl.eimertvink.controller;
 
+import nl.eimertvink.model.Employee;
 import nl.eimertvink.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
-@EnableAutoConfiguration
-public class MainController {
-
-    @RequestMapping("/")
-    @ResponseBody
-    public String home() {
-        return "Hello world <html><body><br> <a href='/topinternalearner'>top internal earner</a>  </body></html>";
-    }
+@RestController
+//@RequestMapping("/employee")
+public class EmployeeController {
 
     @Autowired
     private EmployeeService employeeservice;
+
+
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    public Iterable list(Model model) {
+        Iterable<Employee> employeeList = employeeservice.listAllEmployees();
+        return employeeList;
+    }
 
     @RequestMapping("/topinternalearner")
     @ResponseBody

@@ -13,7 +13,6 @@ import java.util.List;
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
-//    @Autowired
     private EmployeeRepository employeeRepository;
 
     @Autowired
@@ -23,9 +22,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public List<Employee> findAll() {
+    public List<Employee> findMe() {
         // pass-through, without applying any business logic here.
-        return employeeRepository.findAll();
+        return employeeRepository.findMe();
     }
 
     @Override
@@ -33,5 +32,9 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employeeRepository.topInternalEarner();
     }
 
+    @Override
+    public List<Employee> listAllEmployees() {
+        return employeeRepository.listAllEmployees();
+    }
 
 }

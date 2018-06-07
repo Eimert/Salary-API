@@ -15,9 +15,6 @@ public class SalaryApiApplication {
 
         SpringApplication.run(SalaryApiApplication.class, args);
 
-//        @Autowired
-//        private EmployeeService service;
-//        System.out.println(service.findAll().get(0).getFirstname());
 	}
 
 

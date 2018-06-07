@@ -20,3 +20,15 @@ Spring REST API (future)<br>
 ## Data source
 [data source](https://data.cityofchicago.org/Administration-Finance/Current-Employee-Names-Salaries-and-Position-Title/xzkq-xp2w)<br>
 
+## SQLite db
+
+```
+eimert@EIM salary-api $ sqlite3 salaries.db
+SQLite version 3.11.0 2016-02-15 17:29:24
+Enter ".help" for usage hints.
+sqlite> .table
+salaries
+sqlite> select * from salaries LIMIT 1;
+Name|Position Title|Department|Employee Annual Salary
+.quit
+```

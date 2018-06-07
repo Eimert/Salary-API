@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface EmployeeService {
 
-    List<Employee> findAll();
-
+    List<Employee> findMe();
     String topInternalEarner();
+    List<Employee> listAllEmployees();
 }
