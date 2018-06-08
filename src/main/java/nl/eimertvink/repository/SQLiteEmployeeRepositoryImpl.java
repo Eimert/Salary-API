@@ -55,7 +55,7 @@ public class SQLiteEmployeeRepositoryImpl implements EmployeeRepository {
      */
     @Override
     public List<Employee> listAllEmployees() {
-        String sql = "select name, position, department, (CAST(REPLACE(REPLACE(IFNULL(Salary,0),',',''),'$','') as DECIMAL(10,2))) AS SALARY from salaries;";
+        String sql = "select name, position, department, (CAST(REPLACE(REPLACE(IFNULL(Salary,0),',',''),'$','') as DECIMAL(10,2))) AS SALARY from salaries limit 1,(select count(*) from salaries);";
         Connection conn = SQLiteJDBCDriverConnection.connect();
         List<Employee> resultArray = new ArrayList<>();
         try (Statement stmt = conn.createStatement();
@@ -63,7 +63,8 @@ public class SQLiteEmployeeRepositoryImpl implements EmployeeRepository {
 
             // loop through the result set
             while (rs.next()) {
-                resultArray.add(new Employee(new String("Name"), new String("POSITION"), new String("DEPARTMENT"), new Float("SALARY")));
+//                System.out.println(rs.getString("NAME") + " sal: " + rs.getFloat("SALARY") + " " + Float.valueOf(rs.getString("SALARY")));
+                resultArray.add(new Employee(rs.getString("NAME"), rs.getString("POSITION"), rs.getString("DEPARTMENT"), Float.valueOf(rs.getString("SALARY"))));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
