@@ -1,8 +1,8 @@
 # Salary-API :heavy_dollar_sign:
 [![Build Status][1]][2]<br>
 Personal project to learn Java and Spring Boot. Displays open data of the City of Chicago. Data set with employee name, position title, department and salary. Data from May 2017.<br>
-![heroku logo](http://www.codecheese.com/wp-content/uploads/heroku-logo.png)
-Salary-API on Heroku: []https://salaryapi.herokuapp.com/](https://salaryapi.herokuapp.com/). Warning: can be slow when dyno is sleeping.
+<img src="http://www.codecheese.com/wp-content/uploads/heroku-logo.png" height=30><br>
+Open [Salary-API on Heroku]https://salaryapi.herokuapp.com/](https://salaryapi.herokuapp.com/). Warning: can be slow when dyno is sleeping.
 
 ## Technology
 Java 8<br>
