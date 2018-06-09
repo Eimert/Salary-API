@@ -1,6 +1,6 @@
-# Salary-API
+# Salary-API :heavy_dollar_sign:
 [![Build Status][1]][2]<br>
-Personal project to learn Java and Spring Boot. Displays open data of the City of Chicago. Dataset with Employee Names, Salaries and Position Title. Data from May 2017.<br>
+Personal project to learn Java and Spring Boot. Displays open data of the City of Chicago. Data set with Employee Names, Salaries and Position Title. Data from May 2017.<br>
 
 ## Setup
 - `git clone` this repo. 
@@ -18,9 +18,9 @@ Spring Web<br>
 Spring Data JPA<br>
 Swagger UI 2 (future)<br>
 
-## Data Source
+## Data Set
 ![alt text](https://raw.githubusercontent.com/Eimert/Salary-API/master/src/main/resources/images/City-of-Chicago-Current-Employee-Names-Salaries-and-Position-Titles.png "City of Chicago")<br>
-[Data source](https://data.cityofchicago.org/Administration-Finance/Current-Employee-Names-Salaries-and-Position-Title/xzkq-xp2w).
+:link: [Data source](https://data.cityofchicago.org/Administration-Finance/Current-Employee-Names-Salaries-and-Position-Title/xzkq-xp2w).
 
 ## SQLite
 
@@ -46,8 +46,8 @@ rowid       name             position          department   salary
 
 .quit
 ```
-db restore: `sqlite3 salaries.db < salaries.sql`<br>
-last added record: `sqlite3 salaries.db 'select max(id),* from salaries'`
+Database restore: `sqlite3 salaries.db < salaries.sql`<br>
+Last insert: `sqlite3 salaries.db 'select max(id),* from salaries'`
 
 [1]: https://travis-ci.org/Eimert/Salary-API.svg?branch=master
 [2]: http://www.travis-ci.org/Eimert/Salary-API
