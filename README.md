@@ -37,8 +37,8 @@ sqlite> PRAGMA table_info (salaries);
 1           position                0                       0
 2           department              0                       0
 3           salary                  0                       0
-sqlite> select rowid,* from salaries limit 0,3;
-rowid       name             position          department   salary
+sqlite> select id,* from salaries limit 0,3;
+id          name             position          department   salary
 ----------  ---------------  ----------------  -----------  ----------
 1           AARON,  ELVIA J  WATER RATE TAKER  WATER MGMNT  88968.0
 2           AARON,  JEFFERY  POLICE OFFICER    POLICE       80778.0
