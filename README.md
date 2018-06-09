@@ -1,7 +1,6 @@
-# Salary-API
+# Salary-API <a href="https://data.cityofchicago.org/Administration-Finance/Current-Employee-Names-Salaries-and-Position-Title/xzkq-xp2w" _TARGET="blank"><img width="400" align="right" src="https://github.com/Eimert/Salary-API/tree/master/src/main/resources/images/City-of-Chicago-Current-Employee-Names-Salaries,-and-Position-Titles.png"></a>
 [![Build Status][1]][2]<br>
 Personal project to learn Java and Spring Boot. Displays open data of the City of Chicago. Dataset with Employee Names, Salaries and Position Title. Data from May 2017.<br>
-
 
 ## Setup
 - `git clone` this repo. 
