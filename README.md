@@ -1,5 +1,5 @@
 # Salary-API
-[![Build Status][1]][2]
+[![Build Status][1]][2]<br>
 Personal project to learn Java and Spring Boot. Displays open data of the City of Chicago. Dataset with Employee Names, Salaries and Position Title. Data from May 2017.<br>
 
 
