@@ -30,7 +30,7 @@ public class EmployeeController {
         e.setPosition(position);
         e.setDepartment(department);
         e.setSalary(salary);
-        System.out.println(e);
+//        System.out.println(e);
         employeeservice.save(e);
         return "Saved";
     }

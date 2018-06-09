@@ -58,6 +58,6 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "id=" + getId() + "\n" + "Name=" + getName();
+        return "id=" + getId() + " name=" + getName();
     }
 }
