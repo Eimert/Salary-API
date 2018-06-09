@@ -18,11 +18,11 @@ Spring Web<br>
 Spring Data JPA<br>
 Swagger UI 2 (future)<br>
 
-## Data source
-![alt text](https://raw.githubusercontent.com/Eimert/Salary-API/master/src/main/resources/images/City-of-Chicago-Current-Employee-Names-Salaries-and-Position-Titles.png "City of Chicago")
-[data source](https://data.cityofchicago.org/Administration-Finance/Current-Employee-Names-Salaries-and-Position-Title/xzkq-xp2w)<br>
+## Data Source
+![alt text](https://raw.githubusercontent.com/Eimert/Salary-API/master/src/main/resources/images/City-of-Chicago-Current-Employee-Names-Salaries-and-Position-Titles.png "City of Chicago")<br>
+[Data source](https://data.cityofchicago.org/Administration-Finance/Current-Employee-Names-Salaries-and-Position-Title/xzkq-xp2w).
 
-## SQLite db
+## SQLite
 
 ```
 eimert@EIM salary-api $ sqlite3 salaries.db
