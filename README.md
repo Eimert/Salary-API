@@ -1,13 +1,8 @@
 # Salary-API :heavy_dollar_sign:
 [![Build Status][1]][2]<br>
 Personal project to learn Java and Spring Boot. Displays open data of the City of Chicago. Data set with employee name, position title, department and salary. Data from May 2017.<br>
-
-## Setup
-- `git clone` this repo. 
-- Import the project into your favourite IDE. 
-- Build and run the project. 
-
-Spring will launch the web app and starts listening on port 8484. Visit [localhost:8484](http://localhost:8484) to open the app :). 
+![heroku logo](http://www.codecheese.com/wp-content/uploads/heroku-logo.png)
+Salary-API on Heroku: []https://salaryapi.herokuapp.com/](https://salaryapi.herokuapp.com/). Warning: can be slow when dyno is sleeping.
 
 ## Technology
 Java 8<br>
