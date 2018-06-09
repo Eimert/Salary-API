@@ -1,10 +1,10 @@
 # Salary-API :heavy_dollar_sign:
 [![Build Status][1]][2]<br>
 Personal project to learn Java and Spring Boot. Displays open data of the City of Chicago. Data set with employee name, position title, department and salary. Data from May 2017.<br>
-<img src="http://www.codecheese.com/wp-content/uploads/heroku-logo.png" height=30><br>
-Open [Salary-API on Heroku]https://salaryapi.herokuapp.com/](https://salaryapi.herokuapp.com/). Warning: can be slow when dyno is sleeping.
+<img src="http://www.codecheese.com/wp-content/uploads/heroku-logo.png" height=100 align="right"><br>
+Open [Salary-API on Heroku](https://salaryapi.herokuapp.com/). Warning: can be slow when dyno is sleeping.
 
-## Technology
+## Technology :wrench:
 Java 8<br>
 Spring Boot<br>
 Spring Dependency Injection<br>
@@ -13,7 +13,7 @@ Spring Web<br>
 Spring Data JPA<br>
 Swagger UI 2 (future)<br>
 
-## Data Set
+## Data Set :open_file_folder:
 ![alt text](https://raw.githubusercontent.com/Eimert/Salary-API/master/src/main/resources/images/City-of-Chicago-Current-Employee-Names-Salaries-and-Position-Titles.png "City of Chicago")<br>
 :link: [Data source](https://data.cityofchicago.org/Administration-Finance/Current-Employee-Names-Salaries-and-Position-Title/xzkq-xp2w).
 
