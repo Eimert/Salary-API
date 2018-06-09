@@ -3,38 +3,102 @@ package nl.eimertvink.service;
 import nl.eimertvink.model.Employee;
 import nl.eimertvink.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.Optional;
 
 /*
  * service layer has the business logic
+ *
+ * @Primary because:
+ * Field employeeservice in nl.eimertvink.controller.EmployeeController required a single bean, but 2 were found:
+	- employeeServiceImpl: defined in file [/home/eimert/IdeaProjects/salary-api/target/classes/nl/eimertvink/service/EmployeeServiceImpl.class]
+	- employeeService: defined in null
  */
 @Service
+@Primary
 public class EmployeeServiceImpl implements EmployeeService {
 
+    @Autowired
     private EmployeeRepository employeeRepository;
 
-    @Autowired
-    public void setEmployeeRepository(EmployeeRepository employeeRepository) {
-        System.out.println("We are using setter injection");
-        this.employeeRepository = employeeRepository;
+    //
+//    @Autowired
+//    @EnableJpaRepositories(basePackages="nl.eimertvink", entityManagerFactoryRef="emf")
+//    public void setEmployeeRepository(EmployeeRepository employeeRepository) {
+//        System.out.println("We are using setter injection");
+//        this.employeeRepository = employeeRepository;
+//    }
+
+//    @Override
+//    public List<Employee> findMe() {
+//        // pass-through, without applying any business logic here.
+//        return employeeRepository.findMe();
+//    }
+//
+//    @Override
+//    public String topInternalEarner() {
+//        return employeeRepository.topInternalEarner();
+//    }
+//
+//    @Override
+//    public List<Employee> listAllEmployees() {
+//        return employeeRepository.listAllEmployees();
+//    }
+
+    @Override
+    public <S extends Employee> S save(S s) {
+        return employeeRepository.save(s);
     }
 
     @Override
-    public List<Employee> findMe() {
-        // pass-through, without applying any business logic here.
-        return employeeRepository.findMe();
+    public <S extends Employee> Iterable<S> saveAll(Iterable<S> iterable) {
+        return null;
     }
 
     @Override
-    public String topInternalEarner() {
-        return employeeRepository.topInternalEarner();
+    public Optional<Employee> findById(Integer integer) {
+        return Optional.empty();
     }
 
     @Override
-    public List<Employee> listAllEmployees() {
-        return employeeRepository.listAllEmployees();
+    public boolean existsById(Integer integer) {
+        return false;
     }
 
+    @Override
+    public Iterable<Employee> findAll() {
+        return employeeRepository.findAll();
+    }
+
+    @Override
+    public Iterable<Employee> findAllById(Iterable<Integer> iterable) {
+        return null;
+    }
+
+    @Override
+    public long count() {
+        return 0;
+    }
+
+    @Override
+    public void deleteById(Integer integer) {
+
+    }
+
+    @Override
+    public void delete(Employee employee) {
+
+    }
+
+    @Override
+    public void deleteAll(Iterable<? extends Employee> iterable) {
+
+    }
+
+    @Override
+    public void deleteAll() {
+
+    }
 }

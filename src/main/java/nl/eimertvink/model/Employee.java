@@ -1,39 +1,51 @@
 package nl.eimertvink.model;
 
-import org.springframework.stereotype.Component;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Component
+@Entity
+@Table(name = "salaries")
 public class Employee {
-
-    private String firstname;
-    private String lastname;
+    @Id
+    @GeneratedValue(strategy = javax.persistence.GenerationType.IDENTITY)
+    private Integer id;
+    private String name;
     private String position;
     private String department;
     private Float salary;
-    public Employee() {
-        super();
-    }
-    public Employee(String full_name) {
-        // split SURNAME, FIRSTNAME in two parts. Remove leading whitespace after ,
-        this.firstname = full_name.split(",")[1].replaceAll("^\\s+", "");
-        this.lastname = full_name.split(",")[0];
+
+    public Integer getId() {
+        return id;
     }
 
-    public Employee(String firstname, String lastname, String position, String department, Float salary) {
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.position = position;
-        this.department = department;
-        this.salary = salary;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public Employee(String full_name, String position, String department, Float salary) {
-        // split SURNAME, FIRSTNAME in two parts. Remove leading whitespace after ,
-        this.firstname = full_name.split(",")[1].replaceAll("^\\s+", "");
-        this.lastname = full_name.split(",")[0];
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
         this.position = position;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
         this.department = department;
-        this.salary = salary;
     }
 
     public Float getSalary() {
@@ -44,19 +56,8 @@ public class Employee {
         this.salary = salary;
     }
 
-    public String getFirstname() {
-        return firstname;
-    }
-
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    @Override
+    public String toString() {
+        return "id=" + getId() + "\n" + "Name=" + getName();
     }
 }
