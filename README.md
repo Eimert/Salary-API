@@ -2,14 +2,14 @@
 [![Build Status][1]][2]<br>
 Personal project to learn Java and Spring Boot. Displays open data of the City of Chicago. Data set with employee name, position title, department and salary. Data from May 2017.<br>
 
-## Setup :computer:
+## Setup
 - `git clone` this repo. 
 - Import the project into your favourite IDE. 
 - Build and run the project. 
 
 Spring will launch the web app and starts listening on port 8484. Visit [localhost:8484](http://localhost:8484) to open the app :). 
 
-## Technology :wrench:
+## Technology
 Java 8<br>
 Spring Boot<br>
 Spring Dependency Injection<br>
@@ -18,7 +18,7 @@ Spring Web<br>
 Spring Data JPA<br>
 Swagger UI 2 (future)<br>
 
-## Data Set :file_folder:
+## Data Set
 ![alt text](https://raw.githubusercontent.com/Eimert/Salary-API/master/src/main/resources/images/City-of-Chicago-Current-Employee-Names-Salaries-and-Position-Titles.png "City of Chicago")<br>
 :link: [Data source](https://data.cityofchicago.org/Administration-Finance/Current-Employee-Names-Salaries-and-Position-Title/xzkq-xp2w).
 
