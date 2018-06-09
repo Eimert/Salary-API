@@ -1,6 +1,6 @@
 # Salary-API :heavy_dollar_sign:
 [![Build Status][1]][2]<br>
-Personal project to learn Java and Spring Boot. Displays open data of the City of Chicago. Data set with Employee Names, Salaries and Position Title. Data from May 2017.<br>
+Personal project to learn Java and Spring Boot. Displays open data of the City of Chicago. Data set with employee name, position title, department and salary. Data from May 2017.<br>
 
 ## Setup
 - `git clone` this repo. 
