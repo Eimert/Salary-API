@@ -46,7 +46,8 @@ rowid       name             position          department   salary
 
 .quit
 ```
-db restore: `sqlite3 salaries.db < salaries.sql`
+db restore: `sqlite3 salaries.db < salaries.sql`<br>
+last added record: `sqlite3 salaries.db 'select max(id),* from salaries'`
 
 [1]: https://travis-ci.org/Eimert/Salary-API.svg?branch=master
 [2]: http://www.travis-ci.org/Eimert/Salary-API
