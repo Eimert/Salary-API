@@ -1,5 +1,6 @@
 package nl.eimertvink.repository;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
@@ -11,12 +12,17 @@ public class SQLiteJDBCDriverConnection {
 //    @Autowired
 //    private ConfigProperties configproperties;
 
+    // not working:
+    @Value("${spring.datasource.url}")
+    static String url;
+
     /*
      * connect to the salaries.db db
      */
     public static Connection connect() {
         Connection conn = null;
         try {
+            System.out.println("url:" + SQLiteJDBCDriverConnection.url);
             String url = "jdbc:sqlite:salaries.db";
 //            String url = "jdbc:sqlite:salaries.db";
 //            String url = SQLiteJDBCDriverConnection.url;

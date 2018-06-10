@@ -1,6 +1,4 @@
 ### Databases ###
-*.sql
-*.db
 
 ### artifacts ###
 target/
