@@ -23,4 +23,8 @@ public interface EmployeeRepository extends CrudRepository<Employee, Integer> {
     Void deleteByName(String name);
 
     List<Employee> findAll();
+
+    void delete(Employee employee);
+
+    void deleteById(Integer id);
 }

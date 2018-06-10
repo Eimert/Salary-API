@@ -49,8 +49,8 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public boolean existsById(Integer integer) {
-        return false;
+    public boolean existsById(Integer id) {
+        return employeeRepository.existsById(id);
     }
 
     @Override
@@ -69,13 +69,13 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public void deleteById(Integer integer) {
-
+    public void deleteById(Integer id) {
+        employeeRepository.deleteById(id);
     }
 
     @Override
     public void delete(Employee employee) {
-
+        employeeRepository.delete(employee);
     }
 
     @Override

@@ -32,7 +32,7 @@ public class SQLiteEmployeeRepositoryImpl implements EmployeeRepository {
     }
 
     @Override
-    public boolean existsById(Integer integer) {
+    public boolean existsById(Integer id) {
         return false;
     }
 
@@ -88,13 +88,13 @@ public class SQLiteEmployeeRepositoryImpl implements EmployeeRepository {
     }
 
     @Override
-    public void deleteById(Integer integer) {
+    public void deleteById(Integer id) {
 
     }
 
     @Override
     public void delete(Employee employee) {
-
+//        employee.getId()
     }
 
     @Override

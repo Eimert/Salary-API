@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Random;
+
 @RestController
 @RequestMapping("/employee")
 public class EmployeeController {
@@ -25,6 +27,33 @@ public class EmployeeController {
         employeeservice.deleteAll();
         return "Emptied db";
     }
+
+    @RequestMapping(value = "/delete", method = RequestMethod.GET)
+    public @ResponseBody String delete(Employee employee) {
+        // to-do: check existsById before delete.
+        employeeservice.delete(employee);
+        return "Deleted employee.";
+    }
+
+    @RequestMapping(value = "/deletebyid", method = RequestMethod.GET)
+    public @ResponseBody String deleteById(Integer id) {
+        // to-do: check existsById before delete.
+        employeeservice.deleteById(id);
+        return "Deleted employee with id=" + id;
+    }
+
+    @RequestMapping(value = "/trumpmode", method = RequestMethod.GET)
+    public String trumpMode() {
+        Random rand = new Random();
+        // to-do: on max(id). check existsById before delete.
+        int i = rand.nextInt(32180) + 1;
+        deleteById(i);
+        return "Trump fired Employee with id=" + i;
+    }
+//    public @ResponseBody String deleteById(Integer id) {
+//        employeeservice.deleteById(id);
+//        return "Deleted employee with id=" + id;
+//    }
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public @ResponseBody String addNewEmployee (@RequestParam String name,
