@@ -20,6 +20,12 @@ public class EmployeeController {
         return employeeList;
     }
 
+    @RequestMapping(value = "/deleteall", method = RequestMethod.GET)
+    public @ResponseBody String deleteAll() {
+        employeeservice.deleteAll();
+        return "Emptied db";
+    }
+
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public @ResponseBody String addNewEmployee (@RequestParam String name,
                                                 @RequestParam String position,
@@ -39,5 +45,7 @@ public class EmployeeController {
     public @ResponseBody String topInternalEarner() {
         return "<html><body>City of Chicago' Top Internal Earner: " + employeeservice.topInternalEarner() + " <br> <a href='/'>back to home</a></body></html>";
     }
+
+
 
 }

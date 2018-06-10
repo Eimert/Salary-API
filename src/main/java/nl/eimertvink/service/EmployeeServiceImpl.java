@@ -85,7 +85,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void deleteAll() {
-
+        employeeRepository.deleteAll();
     }
 
     @Override
