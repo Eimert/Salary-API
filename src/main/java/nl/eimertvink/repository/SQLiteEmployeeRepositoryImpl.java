@@ -1,6 +1,7 @@
 package nl.eimertvink.repository;
 
 import nl.eimertvink.model.Employee;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.sql.Connection;
@@ -14,6 +15,9 @@ import java.util.Optional;
 
 @Component
 public class SQLiteEmployeeRepositoryImpl implements EmployeeRepository {
+
+    @Autowired
+    private EmployeeRepository employeeRepository;
 
     @Override
     public <S extends Employee> S save(S s) {
@@ -47,8 +51,8 @@ public class SQLiteEmployeeRepositoryImpl implements EmployeeRepository {
     }
 
     @Override
-    public Void deleteByName(String name) {
-        return null;
+    public void deleteByName(String name) {
+        employeeRepository.deleteByName(name);
     }
 
     @Override

@@ -1,5 +1,6 @@
 package nl.eimertvink.repository;
 
+import nl.eimertvink.model.Employee;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
@@ -58,6 +59,22 @@ public class CustomizedEmployeeRepositoryImpl implements CustomizedEmployeeRepos
             SQLiteJDBCDriverConnection.close(conn);
         }
 
+    }
+
+
+    @Override
+    public List<Employee> getCommonSurname() {
+        return null;
+    }
+
+    @Override
+    public List<Employee> getCommonFirstname() {
+        return null;
+    }
+
+    @Override
+    public List<Employee> getAverageSalaryBySex() {
+        return null;
     }
 
 }

@@ -75,6 +75,11 @@ public class EmployeeController {
         return "<html><body>City of Chicago' Top Internal Earner: " + employeeservice.topInternalEarner() + " <br> <a href='/'>back to home</a></body></html>";
     }
 
+    @RequestMapping(value="/deletebyname", method = RequestMethod.GET)
+    public @ResponseBody String deleteByName(@RequestParam String name) {
+        employeeservice.deleteByName(name);
+        return "Deleted employee called=" + name;
+    }
 
 
 }

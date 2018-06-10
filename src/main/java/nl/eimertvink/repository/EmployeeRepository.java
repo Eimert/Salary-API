@@ -20,11 +20,14 @@ public interface EmployeeRepository extends CrudRepository<Employee, Integer> {
 
 //    Void update(String Name, String position, String department, Float salary);
 
-    Void deleteByName(String name);
+    void deleteByName(String name);
 
     List<Employee> findAll();
 
     void delete(Employee employee);
 
     void deleteById(Integer id);
+    /*
+     * Put customized methods in CustomizedEmployeeRepository.
+     */
 }

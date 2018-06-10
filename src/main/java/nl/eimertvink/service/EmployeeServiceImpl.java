@@ -6,7 +6,9 @@ import nl.eimertvink.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 /*
@@ -19,6 +21,7 @@ import java.util.Optional;
  */
 @Service
 @Primary
+@Transactional
 public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
@@ -91,5 +94,24 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public String topInternalEarner() {
         return customizedEmployeeRepository.topInternalEarner();
+    }
+
+    public void deleteByName(String name) {
+        employeeRepository.deleteByName(name);
+    }
+
+    @Override
+    public List<Employee> getCommonSurname() {
+        return customizedEmployeeRepository.getCommonSurname();
+    }
+
+    @Override
+    public List<Employee> getCommonFirstname() {
+        return customizedEmployeeRepository.getCommonSurname();
+    }
+
+    @Override
+    public List<Employee> getAverageSalaryBySex() {
+        return customizedEmployeeRepository.getAverageSalaryBySex();
     }
 }
