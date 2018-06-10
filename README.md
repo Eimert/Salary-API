@@ -7,11 +7,11 @@ Open [Salary-API on Heroku](https://salaryapi.herokuapp.com/). Warning: can be s
 ## Technology :wrench:
 Java 8<br>
 Spring Boot<br>
-Spring Dependency Injection<br>
-SQLite<br>
 Spring Web<br>
-Spring Data JPA<br>
+Spring Dependency Injection<br>
+Spring Data REST<br>
 Swagger UI 2 (future)<br>
+SQLite<br>
 
 ## Data Set :open_file_folder:
 ![alt text](https://raw.githubusercontent.com/Eimert/Salary-API/master/src/main/resources/images/City-of-Chicago-Current-Employee-Names-Salaries-and-Position-Titles.png "City of Chicago")<br>
