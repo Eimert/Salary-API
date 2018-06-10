@@ -8,6 +8,7 @@ Open [Salary-API on Heroku](https://salaryapi.herokuapp.com/). Warning: can be s
 Java 8<br>
 Spring Boot<br>
 Spring Web<br>
+Spring MVC<br>
 Spring Dependency Injection<br>
 Spring Data REST<br>
 Swagger UI 2 (future)<br>
