@@ -1,7 +1,6 @@
 package nl.eimertvink.service;
 
 import nl.eimertvink.model.Employee;
-import nl.eimertvink.repository.CustomizedEmployeeRepository;
 import nl.eimertvink.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
@@ -23,14 +22,29 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
     private EmployeeRepository employeeRepository;
-    @Autowired
-    private CustomizedEmployeeRepository customizedEmployeeRepository;
 
+    //
 //    @Autowired
 //    @EnableJpaRepositories(basePackages="nl.eimertvink", entityManagerFactoryRef="emf")
 //    public void setEmployeeRepository(EmployeeRepository employeeRepository) {
 //        System.out.println("We are using setter injection");
 //        this.employeeRepository = employeeRepository;
+//    }
+
+//    @Override
+//    public List<Employee> findMe() {
+//        // pass-through, without applying any business logic here.
+//        return employeeRepository.findMe();
+//    }
+//
+//    @Override
+//    public String topInternalEarner() {
+//        return employeeRepository.topInternalEarner();
+//    }
+//
+//    @Override
+//    public List<Employee> listAllEmployees() {
+//        return employeeRepository.listAllEmployees();
 //    }
 
     @Override
@@ -86,10 +100,5 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public void deleteAll() {
 
-    }
-
-    @Override
-    public String topInternalEarner() {
-        return customizedEmployeeRepository.topInternalEarner();
     }
 }

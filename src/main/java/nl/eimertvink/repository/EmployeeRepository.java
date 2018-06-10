@@ -3,9 +3,6 @@ package nl.eimertvink.repository;
 
 import nl.eimertvink.model.Employee;
 import org.springframework.data.repository.CrudRepository;
-
-import java.util.List;
-
 /*
  * Repository or CrudRepository?
  * If we want to expose all repository methods that are declared by the CrudRepository interface AND we don’t want to return Optional (Guava / Java 8) objects, our repository interfaces should extend the CrudRepository interface.
@@ -16,11 +13,17 @@ import java.util.List;
  */
 public interface EmployeeRepository extends CrudRepository<Employee, Integer> {
 
-    List<Employee> getByName(String name);
-
+//    List<Employee> findMe();
+//
+//    String topInternalEarner();
+//
+//    List<Employee> listAllEmployees();
+//
+//    List<Employee> getByName(String name);
+//
 //    Void update(String Name, String position, String department, Float salary);
+//
+//    Void deleteByName(String name);
 
-    Void deleteByName(String name);
-
-    List<Employee> findAll();
+//    List<Employee> findAll();
 }

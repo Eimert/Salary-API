@@ -35,9 +35,10 @@ public class EmployeeController {
         return "Saved";
     }
 
-    @RequestMapping("/topinternalearner")
-    public @ResponseBody String topInternalEarner() {
-        return "<html><body>City of Chicago' Top Internal Earner: " + employeeservice.topInternalEarner() + " <br> <a href='/'>back to home</a></body></html>";
-    }
+//    @RequestMapping("/topinternalearner")
+//    @ResponseBody
+//    public String topInternalEarner() {
+//        return "<html><body> City of Chicago' Top Internal Earner: " + employeeservice.topInternalEarner() + " <br> <a href='/'>back to home</a>  </body></html>";
+//    }
 
 }

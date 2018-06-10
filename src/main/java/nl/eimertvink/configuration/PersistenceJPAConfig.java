@@ -31,13 +31,13 @@ public class PersistenceJPAConfig {
     @Bean
     @ConfigurationProperties(prefix="spring.datasource")
     public DataSource dataSource(){
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+//        DriverManagerDataSource dataSource = new DriverManagerDataSource();
 //        applications.properties - Spring Boot will automatically configure a data source based on these properties.
 //        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
 //        dataSource.setUrl("${spring.datasource.url}");
 //        dataSource.setUsername( "tutorialuser" );
 //        dataSource.setPassword( "tutorialmy5ql" );
-        return dataSource;
+        return new DriverManagerDataSource();
     }
 
 }
