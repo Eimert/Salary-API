@@ -1,5 +1,9 @@
-salaries.db
-/target/
+### Databases ###
+*.sql
+*.db
+
+### artifacts ###
+target/
 !.mvn/wrapper/maven-wrapper.jar
 
 ### STS ###
