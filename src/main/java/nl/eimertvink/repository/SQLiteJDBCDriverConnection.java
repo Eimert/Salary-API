@@ -17,7 +17,7 @@ public class SQLiteJDBCDriverConnection {
     public static Connection connect() {
         Connection conn = null;
         try {
-            String url = "${spring.datasource.url}";
+            String url = "jdbc:sqlite:salaries.db";
 //            String url = "jdbc:sqlite:salaries.db";
 //            String url = SQLiteJDBCDriverConnection.url;
 //            String url = "jdbc:sqlite:salaries.db";
