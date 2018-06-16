@@ -41,31 +41,37 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
     Employee findFirstByDepartmentLike(String departmentName);
 
 
+
     @Query("select e from Employee e where e.name like :name")
     Page<Employee> queryByNameIgnoreCase(@Param("name") String name, Pageable page);
-    List<Employee> findByNameIgnoreCase(String name);
+    List<Employee> findByNameLikeIgnoreCase(String name);
+    Employee getOne(Integer id);
+    Optional<Employee> findById(Integer integer);
+
+
     // heavy:
     List<Employee> findAll();
     List<Employee> findAll(Sort sort);
+
     List<Employee> findAllById(Iterable<Integer> iterable);
 
+    // add c*ud
 
-
-
-    long count();
-    void deleteById(Integer integer);
+    void deleteById(Integer id);
     void delete(Employee employee);
     void deleteAll(Iterable<? extends Employee> iterable);
+
     void deleteAll();
+    // create + update:
     <S extends Employee> S save(S s);
+
+    <S extends Employee> S saveAndFlush(S s);
+    long count();
     <S extends Employee> List<S> saveAll(Iterable<S> iterable);
-    Optional<Employee> findById(Integer integer);
     boolean existsById(Integer integer);
     void flush();
-    <S extends Employee> S saveAndFlush(S s);
     void deleteInBatch(Iterable<Employee> iterable);
     void deleteAllInBatch();
-    Employee getOne(Integer integer);
     <S extends Employee> List<S> findAll(Example<S> example);
     <S extends Employee> List<S> findAll(Example<S> example, Sort sort);
 }

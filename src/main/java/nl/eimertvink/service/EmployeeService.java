@@ -1,12 +1,9 @@
 package nl.eimertvink.service;
 
 import nl.eimertvink.model.Employee;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface EmployeeService {
 
@@ -16,8 +13,29 @@ public interface EmployeeService {
     void deleteById(Integer id);
 
     List<Employee> findAll();
+    String findOne(Integer id);
+    Optional<Employee> findById(Integer id);
+    Employee getOne(Integer id);
+    List<String> findDistinctEmployeeByDepartmentLike(String departmentName);
 //    Iterable<Employee> listAllEmployees();
-    String getOne(Integer id);
+//    List<Employee> findTop5ByNameLike(String compulsoryNameFilter);
+//    Employee findFirstByNameLike(String compulsoryNameFilter);
+//    List<Employee> findAllDistinctDepartment();
+//    List<Employee> findBySalaryLessThan(Float num);
+//    List<Employee> findBySalaryLessThanEqual(Float num);
+//    List<Employee> findBySalaryGreaterThan(Float num);
+//    List<Employee> findBySalaryGreaterThanEqual(Float num);
+//    Employee findFirstByDepartmentLike(String departmentName);
+
+
+    void saveAndFlush(Employee emp);
+//    void setNameById(Integer id, String name);
+//    void setPositionById(Integer id, String name);
+    void delete(Employee employee);
+    void deleteAll(Iterable<? extends Employee> iterable);
+    void deleteAll();
+
+
 
 
 }

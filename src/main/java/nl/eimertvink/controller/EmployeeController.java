@@ -78,10 +78,18 @@ public class EmployeeController {
         return "Deleted employee called=" + name;
     }
 
-    @RequestMapping(value = "/get", method = RequestMethod.GET)
-    public @ResponseBody String getOne(@RequestParam Integer id) {
-        return employeeservice.getOne(id);
+    @RequestMapping(value = "/get", method = { RequestMethod.GET, RequestMethod.POST })
+    public @ResponseBody String findOne(@RequestParam Integer id) {
+        return employeeservice.findOne(id);
     }
 
+    @RequestMapping(value = "/updatename", method = RequestMethod.GET)
+    public @ResponseBody String updateName(@RequestParam Integer id, @RequestParam String name) {
+        Employee emp = employeeservice.getOne(id);
+        String oldName = emp.getName();
+        emp.setName(name);
+        employeeservice.saveAndFlush(emp);
+        return "updated oldname=" + oldName + " newname=" + employeeservice.getOne(id).getName();
+    }
 
 }
