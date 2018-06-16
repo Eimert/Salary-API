@@ -16,6 +16,14 @@ public class Employee {
     private String department;
     private Float salary;
 
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -38,14 +46,6 @@ public class Employee {
 
     public void setPosition(String position) {
         this.position = position;
-    }
-
-    public String getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department;
     }
 
     public Float getSalary() {

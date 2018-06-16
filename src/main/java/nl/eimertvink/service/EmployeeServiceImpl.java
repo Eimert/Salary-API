@@ -1,74 +1,28 @@
 package nl.eimertvink.service;
 
 import nl.eimertvink.model.Employee;
-import nl.eimertvink.repository.CustomizedEmployeeRepository;
 import nl.eimertvink.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Primary;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 
-/*
- * service layer has the business logic
- *
- * @Primary because:
- * Field employeeservice in nl.eimertvink.controller.EmployeeController required a single bean, but 2 were found:
-	- employeeServiceImpl: defined in file [/home/eimert/IdeaProjects/salary-api/target/classes/nl/eimertvink/service/EmployeeServiceImpl.class]
-	- employeeService: defined in null
- */
-@Service
-@Primary
-@Transactional
+@Service("EmployeeService")
 public class EmployeeServiceImpl implements EmployeeService {
-
     @Autowired
-    private EmployeeRepository employeeRepository;
-    @Autowired
-    private CustomizedEmployeeRepository customizedEmployeeRepository;
-
-//    @Autowired
-//    @EnableJpaRepositories(basePackages="nl.eimertvink", entityManagerFactoryRef="emf")
-//    public void setEmployeeRepository(EmployeeRepository employeeRepository) {
-//        System.out.println("We are using setter injection");
-//        this.employeeRepository = employeeRepository;
-//    }
+    EmployeeRepository employeeRepository;
 
     @Override
-    public <S extends Employee> S save(S s) {
-        return employeeRepository.save(s);
+    public String queryByMaxInternalSalary() {
+        return employeeRepository.queryByMaxInternalSalary();
     }
 
     @Override
-    public <S extends Employee> Iterable<S> saveAll(Iterable<S> iterable) {
-        return null;
-    }
-
-    @Override
-    public Optional<Employee> findById(Integer integer) {
-        return Optional.empty();
-    }
-
-    @Override
-    public boolean existsById(Integer id) {
-        return employeeRepository.existsById(id);
-    }
-
-    @Override
-    public Iterable<Employee> findAll() {
-        return employeeRepository.findAll();
-    }
-
-    @Override
-    public Iterable<Employee> findAllById(Iterable<Integer> iterable) {
-        return null;
-    }
-
-    @Override
-    public long count() {
-        return 0;
+    public void deleteByName(String name) {
+        employeeRepository.deleteByName(name);
     }
 
     @Override
@@ -77,41 +31,26 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public void delete(Employee employee) {
-        employeeRepository.delete(employee);
+    public List<Employee> findAll() {
+        return employeeRepository.findAll();
     }
 
+//    @Override
+//    public void deleteById(Integer id) {
+//        employeeRepository.deleteById(id);
+//    }
     @Override
-    public void deleteAll(Iterable<? extends Employee> iterable) {
-
+    public String getOne(Integer id) {
+        return employeeRepository.getOne(id).getName() + "\t" +
+                employeeRepository.getOne(id).getPosition() + "\t" +
+                employeeRepository.getOne(id).getDepartment() + "\t" +
+                "$" + employeeRepository.getOne(id).getSalary();
     }
 
-    @Override
-    public void deleteAll() {
-        employeeRepository.deleteAll();
+    Page<Employee> queryByNameIgnoreCase(String name, Pageable page) {
+        PageRequest.of(0, 100);
+
+        return employeeRepository.queryByNameIgnoreCase(name, page);
     }
 
-    @Override
-    public String topInternalEarner() {
-        return customizedEmployeeRepository.topInternalEarner();
-    }
-
-    public void deleteByName(String name) {
-        employeeRepository.deleteByName(name);
-    }
-
-    @Override
-    public List<Employee> getCommonSurname() {
-        return customizedEmployeeRepository.getCommonSurname();
-    }
-
-    @Override
-    public List<Employee> getCommonFirstname() {
-        return customizedEmployeeRepository.getCommonSurname();
-    }
-
-    @Override
-    public List<Employee> getAverageSalaryBySex() {
-        return customizedEmployeeRepository.getAverageSalaryBySex();
-    }
 }
