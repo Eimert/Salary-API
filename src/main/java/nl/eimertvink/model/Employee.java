@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "salaries")
@@ -11,9 +13,13 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = javax.persistence.GenerationType.IDENTITY)
     private Integer id;
+    @NotNull
     private String name;
+    @NotNull
     private String position;
+    @NotNull
     private String department;
+    @Min(0)
     private Float salary;
 
     public String getDepartment() {

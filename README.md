@@ -2,7 +2,12 @@
 [![Build Status][1]][2]<br>
 Personal project to learn Java and Spring Boot. Displays open data of the City of Chicago. Data set with employee name, position title, department and salary. Data from May 2017.<br>
 <img src="http://www.codecheese.com/wp-content/uploads/heroku-logo.png" height=95 align="right"><br>
-Open [Salary-API on Heroku](https://salaryapi.herokuapp.com/). Warning: can be slow when dyno is sleeping.
+Open [Salary-API on Heroku](https://salaryapi.herokuapp.com/). Warning: can be slow when dyno is sleeping.<br>
+
+## Demo accounts
+Username: john  password: sonmez    role: user<br>
+Username: admin password: admin     role: admin<br>
+Discover other methods using [Postman](https://www.getpostman.com/).<br>
 
 ## Technology :wrench:
 Java 8<br>
@@ -12,6 +17,7 @@ Spring MVC<br>
 Spring Dependency Injection<br>
 Spring Data REST<br>
 Swagger UI 2 (future)<br>
+Angular (future)<br>
 SQLite<br>
 
 ## Data Set :open_file_folder:

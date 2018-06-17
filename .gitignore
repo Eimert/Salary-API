@@ -1,4 +1,5 @@
-### Databases ###
+### other ###
+*.log
 
 ### artifacts ###
 target/

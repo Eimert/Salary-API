@@ -9,19 +9,14 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
-/*
- * Repository or CrudRepository?
- * If we want to expose all repository methods that are declared by the CrudRepository interface AND we don’t want to return Optional (Guava / Java 8) objects, our repository interfaces should extend the CrudRepository interface.
- * If we don’t want to expose all repository methods that are declared by the CrudRepository interface OR we want to return Optional (Guava / Java 8) objects, our repository interfaces must extend the Repository interface.
- * Source: https://www.petrikainulainen.net/programming/spring-framework/spring-data-jpa-tutorial-part-two-crud/
- *
- * or JpaRepository?
- *
- */
+@Repository
+@RepositoryRestResource(path="employee", collectionResourceRel = "employee")
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
     List<Employee> getByName(String name);
@@ -55,8 +50,7 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
     List<Employee> findAllById(Iterable<Integer> iterable);
 
-    // add c*ud
-
+    // C_UD:
     void deleteById(Integer id);
     void delete(Employee employee);
     void deleteAll(Iterable<? extends Employee> iterable);
