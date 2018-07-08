@@ -14,11 +14,17 @@ public class EmployeeEventHandler {
     @HandleBeforeCreate
     public void handleBeforeCreate(Employee m) {
         // validate name
-        if(!(m.getName().length() > 3))
-            throw new IllegalArgumentException("Name must be at least 4 characters");
-
-        if((m.getSalary().equals(null)))
-            throw new IllegalArgumentException("Salary can't be null.");
+//        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//        if (m.getName().length() < 3)
+//            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//            throw new IllegalArgumentException("Name must be at least 4 characters");
+//        if (m.getPosition().equals(null))
+//            throw new IllegalArgumentException("Position can't be null.");
+//        if (m.getDepartment().equals(null))
+//            throw new IllegalArgumentException("Department can't be null.");
+//        if (m.getSalary().equals(null) || m.getSalary() < 0)
+//            throw new IllegalArgumentException("Salary can't be lower than 0.");
+//        return new ResponseEntity<Employee>(HttpStatus.OK);
 
     }
 }

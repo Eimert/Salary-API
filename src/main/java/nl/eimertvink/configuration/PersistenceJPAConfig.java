@@ -20,6 +20,7 @@ public class PersistenceJPAConfig {
         em.setDataSource(dataSource());
         em.setPackagesToScan(new String[] { "nl.eimertvink.model" });
 
+
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
 //        em.setJpaProperties(additionalProperties());
