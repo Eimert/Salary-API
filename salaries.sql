@@ -1,5 +1,31 @@
 PRAGMA foreign_keys=OFF;
 BEGIN TRANSACTION;
+
+
+
+DROP TABLE IF EXISTS users;
+CREATE TABLE users(
+  id INTEGER PRIMARY KEY ASC,
+  username TEXT NOT NULL,
+  password TEXT NOT NULL,
+  enabled INTEGER NOT NULL);
+
+DROP TABLE IF EXISTS user_roles;
+CREATE TABLE user_roles (
+  id INTEGER PRIMARY KEY ASC,
+  userid INTEGER NOT NULL,
+  role TEXT NOT NULL,
+  constraint fk_userid foreign key(userid) references users(id));
+  create unique index ix_user_roles on user_roles (id);
+
+INSERT INTO "users" VALUES(NULL, 'admin','$2a$04$S5VRh/L0HyDiM3Api0fxlONXKMy3RJ0yzj88wMUSEYqQ8Z9pdGGtO', 1);
+INSERT INTO "users" VALUES(NULL, 'john','$2a$04$P3WcfLSrIp8n2lRc4lx03.AqP5VkFzHLNrGNVk4F9vVGmYvijKYwK', 1);
+
+INSERT INTO "user_roles" VALUES(NULL, 1,'ROLE_USER');
+INSERT INTO "user_roles" VALUES(NULL, 1,'ROLE_ADMIN');
+INSERT INTO "user_roles" VALUES(NULL, 2,'ROLE_USER');
+
+
 DROP TABLE IF EXISTS salaries;
 -- Explicit: rowid PK (has auto increment).
 CREATE TABLE IF NOT EXISTS salaries (
