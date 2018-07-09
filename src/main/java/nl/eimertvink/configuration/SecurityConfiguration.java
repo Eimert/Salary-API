@@ -31,11 +31,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .authoritiesByUsernameQuery(
                 "SELECT u.username,ur.role FROM users u, user_roles ur WHERE u.id = ur.userid AND u.username=?")
             .passwordEncoder(new BCryptPasswordEncoder());
-//
-//        auth.inMemoryAuthentication()
-//                .withUser("john").password("{noop}sonmez").roles("USER")
-//                .and()
-//                .withUser("admin").password("{noop}admin").roles("USER","ADMIN");
     }
 
     @Override
