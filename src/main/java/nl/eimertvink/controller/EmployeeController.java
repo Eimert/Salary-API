@@ -1,23 +1,20 @@
-//package nl.eimertvink.controller;
-//
-//import nl.eimertvink.model.Employee;
-//import nl.eimertvink.service.EmployeeService;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.data.domain.Page;
-//import org.springframework.data.domain.PageRequest;
-//import org.springframework.web.bind.annotation.*;
-//
-//import java.util.List;
-//
-//
+package nl.eimertvink.controller;
 
-// UNUSED
+import nl.eimertvink.model.Employee;
+import nl.eimertvink.service.EmployeeService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.web.bind.annotation.*;
 
-//public class EmployeeController {
-//
-//    @Autowired
-//    private EmployeeService employeeservice;
-//
+import java.util.List;
+
+
+public class EmployeeController {
+
+    @Autowired
+    private EmployeeService employeeservice;
+
 //
 //    @RequestMapping(value = "/list", method = RequestMethod.GET)
 //    public @ResponseBody Iterable<Employee> list() {
@@ -111,4 +108,4 @@
 //        return employeeservice.findFirstByNameLike(name);
 //    }
 //
-//}
+}
