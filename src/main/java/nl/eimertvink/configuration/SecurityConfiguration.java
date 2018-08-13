@@ -2,11 +2,13 @@ package nl.eimertvink.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.sql.DataSource;
@@ -27,19 +29,63 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication().dataSource(dataSource)
             .usersByUsernameQuery(
-                "SELECT username,password,enabled FROM users WHERE username=?")
+                "SELECT username,password,enabled FROM salaries WHERE username=?")
             .authoritiesByUsernameQuery(
-                "SELECT u.username,ur.role FROM users u, user_roles ur WHERE u.id = ur.userid AND u.username=?")
+                "SELECT s.username,ur.role FROM salaries s,user_roles ur WHERE s.id=ur.salariesid AND s.username=?")
             .passwordEncoder(new BCryptPasswordEncoder());
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        super.configure(http);
-        http.authorizeRequests().anyRequest().hasAnyRole("ADMIN", "USER")
-            .and()
-            .httpBasic(); // Auth with HTTP Basic authentication
-        http.csrf();
+        http
+                .httpBasic(); // Auth with HTTP Basic authentication
+        http
+                .exceptionHandling()
+                .and()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and()
+                .authorizeRequests()
+                //.antMatchers("/actuator/**").permitAll()
+                .antMatchers("/actuator/**").hasAuthority("ADMIN")
+                .antMatchers(
+                        HttpMethod.GET,
+                        "/v2/api-docs",
+                        "/swagger-resources/**",
+                        "/swagger-ui.html**",
+                        "/webjars/**",
+                        "favicon.ico"
+                ).permitAll()
+                .antMatchers("/auth/**").permitAll()
+                .anyRequest().authenticated();
+
+// basic: works fine
+//        super.configure(http);
+//        http.authorizeRequests().anyRequest().hasAnyRole("ADMIN", "USER")
+//            .and()
+//            .httpBasic(); // Auth with HTTP Basic authentication
+//        http.csrf();
+
+        // everyone can view
+//        http
+//             .authorizeRequests()
+//             .antMatchers("/api/employee", "/login*").anonymous()
+//              .and()
+//                .authorizeRequests()
+//                .antMatchers("/api/employee/**").hasAnyRole("ROLE_ADMIN")
+//                .and()
+//                .formLogin()
+//                .and()
+//                .httpBasic();
+
+//                .loginPage("/login")
+//                .defaultSuccessUrl("/api/employee")
+//                .failureUrl("/login?error")
+//                .and()
+//                .logout().logoutSuccessUrl("/login");
+            // managers can create, update, delete
+
+        http.csrf().disable();
+
 //        http.authorizeRequests()
 //            .antMatchers("/api/**").access("hasRole('ROLE_USER')")
 //            .anyRequest().permitAll();
