@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS salaries (
   position TEXT NOT NULL,
   department TEXT NOT NULL,
   salary REAL,
-  username TEXT,
+  email TEXT,
   password TEXT,
   enabled INTEGER NOT NULL);
 
