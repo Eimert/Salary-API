@@ -5,9 +5,20 @@ Personal project to learn Java and Spring Boot. Displays open data of the City o
 Open [Salary-API on Heroku](https://salaryapi.herokuapp.com/). Warning: can be slow when dyno is sleeping.<br>
 
 ## Demo accounts
-Username: john  password: sonmez    role: user<br>
 Username: admin password: admin     role: admin<br>
+[Open security configuration](./src/main/java/nl/eimertvink/configuration/SecurityConfiguration.java) for more.<br>
 Discover other methods using [Postman](https://www.getpostman.com/).<br>
+
+## Usage
+Get login cookie:
+```
+curl -i -X POST -d username=admin -d password=admin -c /opt/cookies.txt http://localhost:8484/login
+curl -i -X POST -d username=admin -d password=admin -c /opt/cookies.txt https://salaryapi.herokuapp.com/login
+```
+Use the cookie in as authentication in future requests.
+```
+
+```
 
 ## Technology :wrench:
 Java 8<br>
@@ -51,5 +62,8 @@ id          name             position          department   salary
 Database restore: `sqlite3 salaries.db < salaries.sql`<br>
 Last insert: `sqlite3 salaries.db 'select max(id),* from salaries'`
 
+## References
+
 [1]: https://travis-ci.org/Eimert/Salary-API.svg?branch=master
 [2]: http://www.travis-ci.org/Eimert/Salary-API
+[3]: API Authentication steps are described at [Baeldung](https://www.baeldung.com/securing-a-restful-web-service-with-spring-security#ch_3_7)
