@@ -13,10 +13,8 @@ CREATE TABLE IF NOT EXISTS salaries (
   password TEXT,
   enabled INTEGER NOT NULL);
 
--- INSERT INTO "salaries" VALUES(NULL, 'Name','Position Title','Department','Employee Annual Salary','','',0);
 -- admin:admin
 INSERT INTO "salaries" VALUES(NULL, 'ADMIN','Godmode','HUMAN RESOURCES','88968.00','admin','$2a$04$S5VRh/L0HyDiM3Api0fxlONXKMy3RJ0yzj88wMUSEYqQ8Z9pdGGtO',1);
-
 INSERT INTO "salaries" VALUES(NULL, 'AARON,  ELVIA J','WATER RATE TAKER','WATER MGMNT','88968.00','','',0);
 INSERT INTO "salaries" VALUES(NULL, 'AARON,  JEFFERY M','POLICE OFFICER','POLICE','80778.00','','',0);
 INSERT INTO "salaries" VALUES(NULL, 'AARON,  KARINA','POLICE OFFICER','POLICE','80778.00','','',0);
@@ -32207,7 +32205,7 @@ CREATE TABLE user_roles (
   role TEXT NOT NULL,
   constraint fk_userid foreign key(salariesid) references salaries(id));
   create unique index ix_user_roles on user_roles (id);
--- give admin role to the 'admin' employee (id==1)
+-- give ROLE_ADMIN to the 'admin' employee (id==1)
 INSERT INTO "user_roles" VALUES(NULL, 1,'ROLE_ADMIN');
 
 COMMIT;
