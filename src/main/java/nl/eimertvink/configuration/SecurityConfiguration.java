@@ -57,15 +57,25 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 //            .and()
 //            .logout();
 
-        http.csrf().disable();
-        http
-                .authorizeRequests()
-//                .anyRequest().authenticated()
-                .antMatchers("/api/employee").authenticated()
-                .and()
-                .formLogin()
-                .and()
-                .httpBasic();
+//        http.csrf().disable();
+//        http
+//                .exceptionHandling()
+//                .and()
+//                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+//                .and()
+//                .anonymous();
+
+// previous config, all fine
+        //        http
+//                .authorizeRequests()
+////                .anyRequest().authenticated()
+//                .antMatchers("/api/employee").authenticated()
+//                .and()
+//                .formLogin()
+//                .and()
+//                .httpBasic();
+
+
 //        http
 //                .httpBasic(); // Auth with HTTP Basic authentication
 //        http
@@ -74,7 +84,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 //                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 //                .and()
 //                .authorizeRequests()
-//                //.antMatchers("/actuator/**").permitAll()
+//                .antMatchers("/").permitAll()
 //                .antMatchers("/actuator/**").hasAuthority("ADMIN")
 //                .antMatchers(
 //                        HttpMethod.GET,
@@ -82,9 +92,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 //                        "/swagger-resources/**",
 //                        "/swagger-ui.html**",
 //                        "/webjars/**",
-//                        "favicon.ico"
+//                        "favicon.ico",
+//                        "/api/**",
+//                        "/v2/**"
 //                ).permitAll()
-//                .antMatchers("/auth/**").permitAll()
+//                .antMatchers("/login/**").permitAll()
 //                .anyRequest().authenticated();
 
 // basic: works fine
@@ -139,7 +151,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 //            .exceptionHandling().accessDeniedPage("/403");
 //          .and()
 //            .csrf();
-//        http.csrf().disable();
+        http.csrf().disable();
     }
 
 //    @Bean

@@ -13,6 +13,7 @@ import java.util.List;
 //@Repository
 //@RepositoryRestResource(path="employee", collectionResourceRel = "employee")
 //@Import(SwaggerConfig.class)
+//@RepositoryRestResource(path = "employees")
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
     List<Employee> getByName(String name);
@@ -22,7 +23,7 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
     String queryByMaxInternalSalary();
 
     List<Employee> findTop5ByNameLike(String compulsoryNameFilter);
-    Employee findFirstByNameLike(String compulsoryNameFilter);
+    Employee findFirstByNameLike(@Param("name") String compulsoryNameFilter);
     List<String> findDistinctEmployeeByDepartmentLike(String departmentName);
 //    List<Employee> findAllDistinctDepartment();
     List<Employee> findBySalaryLessThan(Float num);

@@ -1,8 +1,11 @@
 package nl.eimertvink.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.validator.constraints.Email;
 import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.Entity;
@@ -17,6 +20,7 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "salaries")
 @Validated
+@ApiModel("an employee")
 public class Employee {
     @Id
     @GeneratedValue(strategy = javax.persistence.GenerationType.IDENTITY)
@@ -42,11 +46,13 @@ public class Employee {
     @Size(min = 3)
     @Getter
     @Setter
+    @Email
     private String email;
     //    @NotNull
     @JsonIgnore
     @Getter
     @Setter
+    @ApiModelProperty(hidden = true)
     private String password;
     @NotNull
     @Min(0)

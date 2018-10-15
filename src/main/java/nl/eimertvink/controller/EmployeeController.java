@@ -1,5 +1,6 @@
 package nl.eimertvink.controller;
 
+import io.swagger.annotations.*;
 import nl.eimertvink.configuration.CustomErrorType;
 import nl.eimertvink.model.Employee;
 import nl.eimertvink.repository.EmployeeRepository;
@@ -13,17 +14,21 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@Api(tags = "Employee Entity", description = "Set of endpoints for Creating, Retrieving, Updating and Deleting Employees.")
 public class EmployeeController {
 
     @Autowired
     private EmployeeRepository employeeRepository;
 
-    @PostMapping("/addemployee")
-    public ResponseEntity<?> addEmployee(@RequestBody Employee employee) {
+//    @PostMapping("/addemployee")
+    @RequestMapping(path ="/addemployee", method = RequestMethod.POST, produces = "application/json")
+    @ApiOperation("Create a new employee")
+    @ApiResponses({@ApiResponse(code=201, message = "Created", response = Employee.class), @ApiResponse(code=400, message="Bad Request - already existing")})
+    public ResponseEntity<?> addEmployee(@ApiParam("Employee information.") @RequestBody Employee employee) {
         // to-do: throw neat exception when book already exists.
-        if (employeeRepository.findById(employee.getId()) != null)
+        if (employeeRepository.getOne(employee.getId()) != null)
             return new ResponseEntity<CustomErrorType>(new CustomErrorType("Employee with id=" + employee.getId() + " does already exist."), HttpStatus.BAD_REQUEST);
-        return new ResponseEntity<>(employeeRepository.saveAndFlush(employee), HttpStatus.OK);
+        return new ResponseEntity<>(employeeRepository.saveAndFlush(employee), HttpStatus.CREATED);
     }
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
@@ -111,7 +116,7 @@ public class EmployeeController {
     @RequestMapping(value = "/getname", method = { RequestMethod.GET, RequestMethod.POST })
     public @ResponseBody
     List<Employee> queryByNameIgnoreCase(@RequestParam String name) {
-        Page<Employee> emps = employeeRepository.queryByNameIgnoreCase(name, PageRequest.of(0, 100));
+        Page<Employee> emps = employeeRepository.queryByNameIgnoreCase(name, new PageRequest(0, 100));
         return emps.getContent();
     }
 
