@@ -9,12 +9,13 @@
 	<packaging>jar</packaging>
 
 	<name>salary-api</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Salary-API is build in Spring Boot and exposes open data of the city of Chicago.</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<!--<version>2.0.2.RELEASE</version> disabled in favour of springfox data rest UI doc generation-->
+		<!-- v.2 disabled in favour of springfox data rest UI doc generation. Waiting for SpringFox 3 release. -->
+		<!--<version>2.0.2.RELEASE</version>-->
         <version>1.5.4.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
@@ -146,6 +147,14 @@
             <version>2.23.0</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.3.1</version>
+            <scope>test</scope>
+        </dependency>
+
 
     </dependencies>
 
