@@ -9,12 +9,14 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @Api(tags = "Employee Entity", description = "Set of endpoints for Creating, Retrieving, Updating and Deleting Employees.")
+@PreAuthorize("hasRole('ADMIN')") // only secures my custom methods.
 public class EmployeeController {
 
     @Autowired

@@ -15,8 +15,7 @@ import java.io.IOException;
 /* 3.4. Authentication should Return 200 Instead of 301
  * https://www.baeldung.com/securing-a-restful-web-service-with-spring-security
  */
-public class MySavedRequestAwareAuthenticationSuccessHandler
-        extends SimpleUrlAuthenticationSuccessHandler {
+public class MySavedRequestAwareAuthenticationSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
 
     private RequestCache requestCache = new HttpSessionRequestCache();
 
@@ -31,7 +30,7 @@ public class MySavedRequestAwareAuthenticationSuccessHandler
                 = requestCache.getRequest(request, response);
 
         if (savedRequest == null) {
-            clearAuthenticationAttributes(request);
+            clearAuthenticationAttributes(request); // remove redirect logic for REST API call
             return;
         }
         String targetUrlParam = getTargetUrlParameter();

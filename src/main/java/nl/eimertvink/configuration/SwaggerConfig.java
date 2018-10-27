@@ -35,8 +35,7 @@ public class SwaggerConfig {
                 .title("Salary-API")
                 .description("Employee data from the City of Chicago")
                 .version("1.0")
-                .contact(new Contact("Eimert Vink", "http://eimertvink.nl", "eimertvink@gmail.com"))
+                .contact(new Contact("Eimert Vink", "https://github.com/Eimert/Salary-API", "eimertvink@gmail.com"))
                 .build();
     }
-
 }
