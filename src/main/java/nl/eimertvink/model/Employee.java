@@ -25,6 +25,7 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = javax.persistence.GenerationType.IDENTITY)
     @Getter
+    @JsonIgnore // don't serialize in output
     private Integer id;
     @Size(min = 3)
     @Getter
@@ -49,10 +50,10 @@ public class Employee {
     @Email
     private String email;
     //    @NotNull
-    @JsonIgnore
+    @JsonIgnore // don't serialize in output
     @Getter
     @Setter
-    @ApiModelProperty(hidden = true)
+    @ApiModelProperty(hidden = true) // swagger don't show
     private String password;
     @NotNull
     @Min(0)
