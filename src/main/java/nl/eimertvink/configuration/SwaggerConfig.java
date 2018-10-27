@@ -23,8 +23,9 @@ public class SwaggerConfig {
                 .select()
                 .apis(RequestHandlerSelectors.any())
 //                .apis(RequestHandlerSelectors.basePackage("nl.eimertvink.repository.EmployeeRepository"))
-                .paths(PathSelectors.any())
-//                .paths(PathSelectors.ant("/api/*"))
+//                .apis(RequestHandlerSelectors.basePackage("nl.eimertvink.repository"))
+//                .paths(PathSelectors.any())
+                .paths(PathSelectors.ant("/api/**"))
                 .build()
 //                .pathMapping("/api")
                 .apiInfo(buildMetadata());
@@ -33,7 +34,7 @@ public class SwaggerConfig {
     private ApiInfo buildMetadata() {
         return new ApiInfoBuilder()
                 .title("Salary-API")
-                .description("Employee data from the City of Chicago")
+                .description("Employee data from the City of Chicago. API test credentials: admin admin")
                 .version("1.0")
                 .contact(new Contact("Eimert Vink", "https://github.com/Eimert/Salary-API", "eimertvink@gmail.com"))
                 .build();

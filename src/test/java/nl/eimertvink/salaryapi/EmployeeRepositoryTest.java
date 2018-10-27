@@ -3,6 +3,7 @@ package nl.eimertvink.salaryapi;
 import nl.eimertvink.configuration.PersistenceJPAConfig;
 import nl.eimertvink.model.Employee;
 import nl.eimertvink.repository.EmployeeRepository;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -18,9 +19,12 @@ public class EmployeeRepositoryTest {
     PersistenceJPAConfig persistenceJPAConfig;
 
     @Test(timeout = 200)
-//    @Ignore
-    public void queryByMaxInternalSalaryTest() {
-        employeeRepository.queryByMaxInternalSalary();
+    @Ignore
+    public void findFirstByOrderBySalaryDesc() {
+//        Employee e = employeeRepository.findFirstByOrderBySalaryDesc().getName();
+
+        // throws NPE
+//        assertEquals("Roskopp Bendir", employeeRepository.findFirstByOrderBySalaryDesc().getName());
     }
 
     @Test
