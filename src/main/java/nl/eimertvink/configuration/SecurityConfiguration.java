@@ -1,6 +1,7 @@
 package nl.eimertvink.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -16,7 +17,8 @@ import javax.sql.DataSource;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true) // enable spring method level authorization
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
-
+    @Value("${spring.data.rest.basePath}")
+    private String basePath;
     @Autowired
     private DataSource dataSource;
 
@@ -61,6 +63,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 //    }
 
     // antMatcher ref: https://stackoverflow.com/questions/35890540/when-to-use-spring-securitys-antmatcher
+    // https://stackoverflow.com/questions/39807676/spring-security-httpbasic-not-working-what-am-i-doing-wrong
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         // form auth, or headless using curl. Reference: https://www.baeldung.com/securing-a-restful-web-service-with-spring-security
@@ -69,18 +72,16 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
         /* Default: no auth.
          * All requests to resources under /api should trigger basic auth dialog (or be done with Basic auth credentials provided in header)
+         * https://stackoverflow.com/questions/48295894/spring-security-antmatcher-does-not-work
          */
-
-        http
-            .antMatcher("/api/**")
+        http.antMatcher(basePath+"/employees/**").authorizeRequests().anyRequest().hasAnyRole("ADMIN").and().httpBasic();
 //            .exceptionHandling()
 //            .authenticationEntryPoint(new RestAuthenticationEntryPoint())
 //            .and()
-            .authorizeRequests()
+
 //            .anyRequest().authenticated() //enabled: /api/employees There was an unexpected error (type=Unauthorized, status=401). // disabled: /login not found
-            .anyRequest().hasRole("ADMIN")
-            .and()
-            .httpBasic();
+
+
 //
 //            .and()
 //            .formLogin()
