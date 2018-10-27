@@ -27,9 +27,13 @@ Spring Web<br>
 Spring MVC<br>
 Spring Dependency Injection<br>
 Spring Data REST<br>
-Swagger UI 2 (future)<br>
-Angular (future)<br>
+Swagger-UI 2<br>
 SQLite<br>
+Liquibase (future)<br>
+
+## Development tools
+IntelliJ (with Lombok plugin)<br>
+Postman<br>
 
 ## Data Set :open_file_folder:
 ![alt text](https://raw.githubusercontent.com/Eimert/Salary-API/master/src/main/resources/images/City-of-Chicago-Current-Employee-Names-Salaries-and-Position-Titles.png "City of Chicago")<br>
