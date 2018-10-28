@@ -35,8 +35,9 @@ Liquibase<br>
 IntelliJ (with Lombok plugin)<br>
 Postman<br>
 
-## Cloud deployment
+## Cloud services
 [Heroku](https://salaryapi.herokuapp.com) `git push heroku master`<br>
+[uptimerobot.com](https://uptimerobot.com/) 5 minute uptime monitoring<br> 
 
 ## Data Set :open_file_folder:
 ![alt text](https://raw.githubusercontent.com/Eimert/Salary-API/master/src/main/resources/images/City-of-Chicago-Current-Employee-Names-Salaries-and-Position-Titles.png "City of Chicago")<br>
