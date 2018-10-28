@@ -5,7 +5,7 @@ Personal project to learn Java and Spring Boot. Displays [open data from the Cit
 Open [Salary-API on Heroku](https://salaryapi.herokuapp.com/). Warning: can be slow when dyno is sleeping.<br>
 
 ## Demo accounts
-Username: admin password: admin     role: admin<br>
+Username: admin password: admin     role: ADMIN<br>
 [Open security configuration](./src/main/java/nl/eimertvink/configuration/SecurityConfiguration.java) for more.<br>
 Discover other methods using [Postman](https://www.getpostman.com/).<br>
 
@@ -28,12 +28,15 @@ Spring MVC<br>
 Spring Dependency Injection<br>
 Spring Data REST<br>
 Swagger-UI 2<br>
-SQLite<br>
-Liquibase (future)<br>
+SQLite3<br>
+Liquibase<br>
 
 ## Development tools
 IntelliJ (with Lombok plugin)<br>
 Postman<br>
+
+## Cloud deployment
+[Heroku](https://salaryapi.herokuapp.com) `git push heroku master`<br>
 
 ## Data Set :open_file_folder:
 ![alt text](https://raw.githubusercontent.com/Eimert/Salary-API/master/src/main/resources/images/City-of-Chicago-Current-Employee-Names-Salaries-and-Position-Titles.png "City of Chicago")<br>
@@ -63,7 +66,7 @@ id          name             position          department   salary
 
 .quit
 ```
-Database restore: `sqlite3 salaries.db < salaries.sql`<br>
+Database reset: `sqlite3 salaries.db < salaries.sql`<br>
 Last insert: `sqlite3 salaries.db 'select max(id),* from salaries'`
 
 ## References
@@ -71,3 +74,4 @@ Last insert: `sqlite3 salaries.db 'select max(id),* from salaries'`
 [1]: https://travis-ci.org/Eimert/Salary-API.svg?branch=master
 [2]: http://www.travis-ci.org/Eimert/Salary-API
 [3]: API Authentication steps are described at [Baeldung](https://www.baeldung.com/securing-a-restful-web-service-with-spring-security#ch_3_7)
+[4]: Spring cloud deployment [docs](https://docs.spring.io/spring-boot/docs/current/reference/html/cloud-deployment.html)
