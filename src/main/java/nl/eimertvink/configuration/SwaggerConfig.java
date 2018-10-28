@@ -18,6 +18,8 @@ import springfox.documentation.spring.web.plugins.Docket;
 public class SwaggerConfig {
     @Bean
     public Docket docket() {
+//        final List<Parameter> parameters = Stream.of(createHeaderParam())
+
         return new Docket(DocumentationType.SWAGGER_2)
                 .tags(new Tag("Employee Entity", "Repository for Employee entities"))
                 .select()
@@ -39,4 +41,21 @@ public class SwaggerConfig {
                 .contact(new Contact("Eimert Vink", "https://github.com/Eimert/Salary-API", "eimertvink@gmail.com"))
                 .build();
     }
+
+//    private Parameter createHeaderParam(String name, String description, String defaultValue) {
+//        return new Parameter(name, description, defaultValue, true, false,
+//                false,
+//                new ModelRef("string"),
+//                Optional.absent(),
+//                null,
+//                null,
+//                "header",
+//                false,
+//                "",
+//                "",
+//                "",
+//                "",
+//                "",
+//                "");
+//    }
 }

@@ -1,6 +1,6 @@
 package nl.eimertvink.salaryapi;
 
-import nl.eimertvink.configuration.PersistenceJPAConfig;
+import nl.eimertvink.configuration.DatasourceConfiguration;
 import nl.eimertvink.model.Employee;
 import nl.eimertvink.repository.EmployeeRepository;
 import org.junit.Ignore;
@@ -16,7 +16,7 @@ public class EmployeeRepositoryTest {
     EmployeeRepository employeeRepository;
 
     @Mock
-    PersistenceJPAConfig persistenceJPAConfig;
+    DatasourceConfiguration datasourceConfiguration;
 
     @Test(timeout = 200)
     @Ignore

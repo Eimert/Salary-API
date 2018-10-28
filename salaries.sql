@@ -13,8 +13,6 @@ CREATE TABLE IF NOT EXISTS salaries (
   password TEXT,
   enabled INTEGER NOT NULL);
 
--- admin:admin
-INSERT INTO "salaries" VALUES(NULL, 'ADMIN','Godmode','HUMAN RESOURCES','88968.00','admin','$2a$04$S5VRh/L0HyDiM3Api0fxlONXKMy3RJ0yzj88wMUSEYqQ8Z9pdGGtO',1);
 INSERT INTO "salaries" VALUES(NULL, 'AARON,  ELVIA J','WATER RATE TAKER','WATER MGMNT','88968.00','','',0);
 INSERT INTO "salaries" VALUES(NULL, 'AARON,  JEFFERY M','POLICE OFFICER','POLICE','80778.00','','',0);
 INSERT INTO "salaries" VALUES(NULL, 'AARON,  KARINA','POLICE OFFICER','POLICE','80778.00','','',0);
@@ -32198,14 +32196,14 @@ INSERT INTO "salaries" VALUES(NULL, 'ZYRKOWSKI,  CARLO E','POLICE OFFICER','POLI
 INSERT INTO "salaries" VALUES(NULL, 'ZYSKOWSKI,  DARIUSZ','CHIEF DATA BASE ANALYST','DoIT','110352.00','','',0);
 
 
-DROP TABLE IF EXISTS user_roles;
-CREATE TABLE user_roles (
-  id INTEGER PRIMARY KEY ASC,
-  salariesid INTEGER NOT NULL,
-  role TEXT NOT NULL,
-  constraint fk_userid foreign key(salariesid) references salaries(id));
-  create unique index ix_user_roles on user_roles (id);
--- give ROLE_ADMIN to the 'admin' employee (id==1)
-INSERT INTO "user_roles" VALUES(NULL, 1,'ROLE_ADMIN');
+--DROP TABLE IF EXISTS user_roles;
+--CREATE TABLE user_roles (
+--  id INTEGER PRIMARY KEY ASC,
+--  salariesid INTEGER NOT NULL,
+--  role TEXT NOT NULL,
+--  constraint fk_userid foreign key(salariesid) references salaries(id));
+--  create unique index ix_user_roles on user_roles (id);
+---- give ROLE_ADMIN to the 'admin' employee (id==1)
+--INSERT INTO "user_roles" VALUES(NULL, 1,'ROLE_ADMIN');
 
 COMMIT;

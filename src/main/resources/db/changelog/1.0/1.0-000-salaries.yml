@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1.0-000-salaries
+      author: eimert
+      changes:
+        - sql:
+            comment: append column TEXT as ISO8601 strings ("YYYY-MM-DD HH:MM:SS.SSS").
+            sql: ALTER TABLE salaries ADD created TEXT;
+        - sql:
+            comment: append column TEXT as ISO8601 strings ("YYYY-MM-DD HH:MM:SS.SSS").
+            sql: ALTER TABLE salaries ADD modified TEXT;
+# liquibase dialect not supported by org.sqlite.JDBC driver
+#        - addColumn:
+#            tableName: salaries
+#            columns:
+#              - column:
+#                  name: created
+#                  type: datetime
+#              - column:
+#                  name: modified
+#                  type: datetime
