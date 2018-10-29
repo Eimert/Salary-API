@@ -22,11 +22,11 @@ import javax.validation.constraints.Size;
 @Validated
 @ApiModel("an employee")
 public class Employee {
+    // uppercase Id: serialize. lowercase: not serialized
     @Id
     @GeneratedValue(strategy = javax.persistence.GenerationType.IDENTITY)
     @Getter
-    @JsonIgnore // don't serialize in output
-    private Integer id;
+    private Integer Id;
     @Size(min = 3)
     @Getter
     @Setter
@@ -43,24 +43,22 @@ public class Employee {
     @Getter
     @Setter
     private Float salary;
-    //    @NotNull
-    @Size(min = 3)
     @Getter
     @Setter
     @Email
     private String email;
-    //    @NotNull
+//    @NotNull
     @JsonIgnore // don't serialize in output
     @Getter
     @Setter
     @ApiModelProperty(hidden = true) // swagger don't show
     private String password;
-    @NotNull
+//    @NotNull
     @Min(0)
     @Max(1)
     @Getter
     @Setter
-    private Integer enabled;
+    private Integer enabled = 0;
 
     @Override
     public String toString() {

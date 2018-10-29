@@ -1,23 +1,40 @@
-# Salary-API :heavy_dollar_sign:
-[![Build Status][1]][2]<br>
+# Salary-API :heavy_dollar_sign: [![Build Status][1]][2]
 Personal project to learn Java and Spring Boot. Displays [open data from the City of Chicago](https://data.cityofchicago.org/Administration-Finance/Current-Employee-Names-Salaries-and-Position-Title/xzkq-xp2w). Data set with employee name, position title, department and salary. Data from May 2017.<br>
 <img src="http://www.codecheese.com/wp-content/uploads/heroku-logo.png" height=95 align="right"><br>
 Open [Salary-API on Heroku](https://salaryapi.herokuapp.com/). Warning: can be slow when dyno is sleeping.<br>
 
 ## Demo accounts
-Username: admin password: admin     role: ADMIN<br>
-[Open security configuration](./src/main/java/nl/eimertvink/configuration/SecurityConfiguration.java) for more.<br>
-Discover other methods using [Postman](https://www.getpostman.com/).<br>
+Username: admin<br> 
+password: admin<br>
+role: ADMIN<br>
+[View SecurityConfiguration.java](./src/main/java/nl/eimertvink/configuration/SecurityConfiguration.java) for more details. In-memory auth, DB auth. could be enabled too.<br>
 
 ## Usage
-Get login cookie:
-```
-curl -i -X POST -d username=admin -d password=admin -c /opt/cookies.txt http://localhost:8484/login
-curl -i -X POST -d username=admin -d password=admin -c /opt/cookies.txt https://salaryapi.herokuapp.com/login
-```
-Use the cookie in as authentication in future requests.
+
+Discover and try-out the available REST endpoints using [Swagger-UI](https://salaryapi.herokuapp.com/). Or use [Postman](https://www.getpostman.com/) to fabricate requests.
+
+### Machine 2 Machine usage example
+
+Using basic authentication. Optionally pipe output to jq for human-friendly output: `curl ... | jq '.'`.<br>
+
+Get one employee (by id):
+```bash
+curl https://admin:admin@salaryapi.herokuapp.com/api/employees/4
 ```
 
+Get a pageable, sizable and sortable  employee list:
+```bash
+curl https://admin:admin@salaryapi.herokuapp.com/api/employees/
+```
+
+Show all employees with name LIKE %John%:
+```bash
+curl https://admin:admin@salaryapi.herokuapp.com/api/employees/search/findByNameLikeIgnoreCase?name=%25john%25
+```
+
+Add an employee:
+```bash
+curl -X POST -H "Content-Type: application/json" --data '{ "name": "SMITH,  MARTHA W", "position": "LIBRARY ASSOCIATE", "department": "PUBLIC LIBRARY", "email": "martha.smit@cityofchicago.org", "salary": 24835.2 }' https://admin:admin@salaryapi.herokuapp.com/api/employees
 ```
 
 ## Technology :wrench:
@@ -36,14 +53,14 @@ IntelliJ (with Lombok plugin)<br>
 Postman<br>
 
 ## Cloud services
-[Heroku](https://salaryapi.herokuapp.com) `git push heroku master`<br>
-[uptimerobot.com](https://uptimerobot.com/) 5 minute uptime monitoring<br> 
+[Heroku](https://salaryapi.herokuapp.com) `git push heroku master`.<br>
+[uptimerobot.com](https://uptimerobot.com/) uptime monitoring; polling every 5 minutes.<br> 
 
 ## Data Set :open_file_folder:
 ![alt text](https://raw.githubusercontent.com/Eimert/Salary-API/master/src/main/resources/images/City-of-Chicago-Current-Employee-Names-Salaries-and-Position-Titles.png "City of Chicago")<br>
 :link: [Data source](https://data.cityofchicago.org/Administration-Finance/Current-Employee-Names-Salaries-and-Position-Title/xzkq-xp2w).
 
-## SQLite
+## SQLite database
 
 ```
 eimert@EIM salary-api $ sqlite3 salaries.db
@@ -74,5 +91,5 @@ Last insert: `sqlite3 salaries.db 'select max(id),* from salaries'`
 
 [1]: https://travis-ci.org/Eimert/Salary-API.svg?branch=master
 [2]: http://www.travis-ci.org/Eimert/Salary-API
-[3]: API Authentication steps are described at [Baeldung](https://www.baeldung.com/securing-a-restful-web-service-with-spring-security#ch_3_7)
-[4]: Spring cloud deployment [docs](https://docs.spring.io/spring-boot/docs/current/reference/html/cloud-deployment.html)
+[3]: API Authentication steps are described at [Baeldung](https://www.baeldung.com/securing-a-restful-web-service-with-spring-security#ch_3_7)<br>
+[4]: Spring cloud deployment [docs](https://docs.spring.io/spring-boot/docs/current/reference/html/cloud-deployment.html)<br>
