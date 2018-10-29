@@ -1,2 +1,10 @@
+---
+# references:
+# https://github.com/travis-ci/travis-ci/issues/2457#issuecomment-47113151
+# https://docs.travis-ci.com/user/environment-variables#Encrypted-Variables
+deploy:
+  provider: heroku
+  app: salaryapi
+  api-key: $HEROKU_PRODUCTION_API_KEY
 sudo: false
 language: java
