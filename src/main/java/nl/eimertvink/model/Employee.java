@@ -16,6 +16,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "salaries")
@@ -59,6 +60,12 @@ public class Employee {
     @Getter
     @Setter
     private Integer enabled = 0;
+    @Getter
+    @Setter
+    private LocalDateTime created;
+    @Getter
+    @Setter
+    private LocalDateTime modified;
 
     @Override
     public String toString() {
