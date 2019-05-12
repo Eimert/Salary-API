@@ -16,7 +16,7 @@
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<!-- v.2 disabled in favour of springfox data rest UI doc generation. Waiting for SpringFox 3 release. -->
 		<!--<version>2.0.2.RELEASE</version>-->
-        <version>1.5.4.RELEASE</version>
+        <version>1.5.20.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
@@ -33,7 +33,6 @@
             <url>https://jitpack.io</url>
         </repository>
     </repositories>
-
 
 	<dependencies>
 		<dependency>
@@ -159,6 +158,19 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/com.google.api-client/google-api-client -->
+        <dependency>
+            <groupId>com.google.api-client</groupId>
+            <artifactId>google-api-client</artifactId>
+            <version>1.22.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.google.apis/google-api-services-analytics -->
+        <dependency>
+            <groupId>com.google.apis</groupId>
+            <artifactId>google-api-services-analytics</artifactId>
+            <version>v3-rev159-1.25.0</version>
+        </dependency>
 
     </dependencies>
 
