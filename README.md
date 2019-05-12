@@ -38,7 +38,7 @@ curl -X POST -H "Content-Type: application/json" --data '{ "name": "SMITH,  MART
 ```
 
 ## Technology :wrench:
-Java 8<br>
+Java; OpenJDK 11<br>
 Spring Boot<br>
 Spring Web<br>
 Spring MVC<br>
