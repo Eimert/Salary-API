@@ -8,3 +8,5 @@ deploy:
   api-key: $HEROKU_PRODUCTION_API_KEY
 sudo: false
 language: java
+jdk:
+  - openjdk11
