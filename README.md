@@ -48,7 +48,8 @@ Swagger-UI 2<br>
 SQLite3<br>
 Liquibase<br>
 
-## Development tools
+## Development Setup
+[localhost:8080](http://localhost:8484/swagger-ui.html)<br>
 IntelliJ (with Lombok plugin)<br>
 Postman<br>
 
