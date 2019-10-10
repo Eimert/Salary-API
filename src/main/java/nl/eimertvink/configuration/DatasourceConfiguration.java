@@ -12,20 +12,6 @@ import javax.sql.DataSource;
 @Configuration
 public class DatasourceConfiguration {
 
-//    @Bean
-//    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
-//        LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
-//        em.setDataSource(dataSource());
-//        em.setPackagesToScan(new String[] { "nl.eimertvink.model" });
-//
-//
-//        JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-//        em.setJpaVendorAdapter(vendorAdapter);
-////        em.setJpaProperties(additionalProperties());
-//
-//        return em;
-//    }
-
     @Bean
     @Primary
     @ConfigurationProperties(prefix="spring.datasource")

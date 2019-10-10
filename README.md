@@ -1,44 +1,24 @@
 # Salary-API :heavy_dollar_sign: [![Build Status][1]][2]
 Personal project to learn Java and Spring Boot. Displays [open data from the City of Chicago](https://data.cityofchicago.org/Administration-Finance/Current-Employee-Names-Salaries-and-Position-Title/xzkq-xp2w). Data set with employee name, position title, department and salary. Data from May 2017.<br>
 <img src="http://www.codecheese.com/wp-content/uploads/heroku-logo.png" height=95 align="right"><br>
-Open [Salary-API on Heroku](https://salaryapi.herokuapp.com/). Warning: can be slow when dyno is sleeping.<br>
+Open [Salary-API on Heroku](https://salaryapi.herokuapp.com/). Warning: the site could be offline at the end of the month, when the free dyno hours have passed.<br>
 
-## Demo accounts
-Username: admin<br> 
-password: admin<br>
-role: ADMIN<br>
-[View SecurityConfiguration.java](./src/main/java/nl/eimertvink/configuration/SecurityConfiguration.java) for more details. In-memory auth, DB auth. could be enabled too.<br>
+## Swagger-UI API endpoint discovery
 
-## Usage
+Discover and try-out the available REST endpoints using [Swagger-UI](https://salaryapi.herokuapp.com/). Alternatively use [Postman](https://www.getpostman.com/) to send requests.
 
-Discover and try-out the available REST endpoints using [Swagger-UI](https://salaryapi.herokuapp.com/). Or use [Postman](https://www.getpostman.com/) to fabricate requests.
+### Curl usage example
 
-### Machine 2 Machine usage example
+Optionally pipe output to jq for human-friendly output: `curl ... | jq '.'`.<br>
 
-Using basic authentication. Optionally pipe output to jq for human-friendly output: `curl ... | jq '.'`.<br>
-
-Get one employee (by id):
+Get a pageable employee list:
 ```bash
-curl https://admin:admin@salaryapi.herokuapp.com/api/employees/4
-```
-
-Get a pageable, sizable and sortable  employee list:
-```bash
-curl https://admin:admin@salaryapi.herokuapp.com/api/employees/
-```
-
-Show all employees with name LIKE %John%:
-```bash
-curl https://admin:admin@salaryapi.herokuapp.com/api/employees/search/findByNameLikeIgnoreCase?name=%25john%25
-```
-
-Add an employee:
-```bash
-curl -X POST -H "Content-Type: application/json" --data '{ "name": "SMITH,  MARTHA W", "position": "LIBRARY ASSOCIATE", "department": "PUBLIC LIBRARY", "email": "martha.smit@cityofchicago.org", "salary": 24835.2 }' https://admin:admin@salaryapi.herokuapp.com/api/employees
+curl -X GET https://salaryapi.herokuapp.com/api/employees/
+curl -X GET localhost:8080/api/employees/
 ```
 
 ## Technology :wrench:
-Java; OpenJDK 11<br>
+Oracle Java 8 or OpenJDK 11<br>
 Spring Boot<br>
 Spring Web<br>
 Spring MVC<br>
