@@ -10,5 +10,3 @@ sudo: false
 language: java
 jdk:
   - openjdk11
-script:
-  - jdk_switcher use openjdk11
