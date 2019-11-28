@@ -1,5 +1,7 @@
 ### other ###
 *.log
+*.versionsBackup
+*.db
 
 ### artifacts ###
 target/
