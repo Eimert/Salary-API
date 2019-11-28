@@ -1,7 +1,6 @@
 ### other ###
 *.log
 *.versionsBackup
-salaries.db
 
 ### artifacts ###
 target/

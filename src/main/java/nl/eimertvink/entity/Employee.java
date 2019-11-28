@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.validator.constraints.Email;
 import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.Entity;
@@ -36,7 +35,7 @@ public class Employee {
     private String department;
     @Min(0) @Getter @Setter
     private Float salary;
-    @Getter @Setter @Email
+    @Getter @Setter
     private String email;
     @JsonIgnore // don't serialize in output
     @Getter @Setter @ApiModelProperty(hidden = true) // swagger don't show

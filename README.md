@@ -18,7 +18,7 @@ curl -X GET localhost:8080/api/employees/
 ```
 
 ## Technology :wrench:
-Oracle Java 8 or OpenJDK 11<br>
+Java 11<br>
 Spring Boot<br>
 Spring Web<br>
 Spring MVC<br>

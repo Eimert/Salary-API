@@ -11,21 +11,18 @@
 	<name>salary-api</name>
 	<description>Salary-API is build in Spring Boot and exposes open data of the City of Chicago.</description>
 
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<!-- v.2 disabled in favour of springfox data rest UI doc generation. Waiting for SpringFox 3 release. -->
-        <version>1.5.22.RELEASE</version>
-		<relativePath/>
-	</parent>
-
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.8</java.version>
-        <hibernate.version>5.1.0.Final</hibernate.version>
-		<springfox.version>2.9.2</springfox.version>
+		<java.version>11</java.version>
+		<swagger.version>2.9.2</swagger.version>
 	</properties>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.9.RELEASE</version>
+	</parent>
 
     <repositories>
         <repository>
@@ -46,11 +43,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-entitymanager</artifactId>
-            <version>${hibernate.version}</version>
         </dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -84,16 +76,7 @@
 			<artifactId>liquibase-core</artifactId>
 			<version>3.8.2</version>
 		</dependency>
-		<dependency>
-			<groupId>com.google.api-client</groupId>
-			<artifactId>google-api-client</artifactId>
-			<version>1.30.5</version>
-		</dependency>
-		<dependency>
-			<groupId>com.google.apis</groupId>
-			<artifactId>google-api-services-analytics</artifactId>
-			<version>v3-rev20190807-1.30.1</version>
-		</dependency>
+
 		<!-- JAX-B dependencies for running on OpenJDK 11 -->
 		<dependency>
 			<groupId>javax.xml.bind</groupId>
@@ -115,7 +98,6 @@
 			<artifactId>activation</artifactId>
 			<version>1.1.1</version>
 		</dependency>
-
 
 		<!-- TEST dependencies -->
 		<dependency>
@@ -141,33 +123,15 @@
 			<scope>test</scope>
 		</dependency>
 
-
-		<!-- compile dependencies -->
-        <!-- springfox: waiting for version 3.x to fix @Import(SpringDataRestConfiguration.class) -->
-        <!-- https://github.com/springfox/springfox/issues/2581#issuecomment-411864819-->
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger-ui</artifactId>
-			<version>${springfox.version}</version>
-			<scope>compile</scope>
+			<version>${swagger.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>
-			<version>${springfox.version}</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-data-rest</artifactId>
-			<version>${springfox.version}</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-bean-validators</artifactId>
-			<version>${springfox.version}</version>
-			<scope>compile</scope>
+			<version>${swagger.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>

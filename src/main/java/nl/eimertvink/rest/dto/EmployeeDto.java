@@ -6,7 +6,6 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 import nl.eimertvink.entity.Employee;
-import org.hibernate.validator.constraints.Email;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -27,7 +26,7 @@ public class EmployeeDto {
     private String department;
     @Min(0) @Getter @Setter
     private Float salary;
-    @Getter @Setter @Email
+    @Getter @Setter
     private String email;
     @JsonIgnore // don't serialize in output
     @Getter @Setter @ApiModelProperty(hidden = true) // swagger don't show
