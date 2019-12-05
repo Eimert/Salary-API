@@ -37,8 +37,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         super.configure(http);
         http.csrf().disable()
-            .authorizeRequests()
-            .anyRequest().permitAll();
+            .authorizeRequests();
 // TODO: /login page get shown before swagger. Want it the other way around.
 //            .authorizeRequests()
 //            .antMatchers("/login*", "/swagger-ui.html*").permitAll()

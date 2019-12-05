@@ -1,7 +1,6 @@
 package nl.eimertvink.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.validation.annotation.Validated;
@@ -38,7 +37,7 @@ public class Employee {
     @Getter @Setter
     private String email;
     @JsonIgnore // don't serialize in output
-    @Getter @Setter @ApiModelProperty(hidden = true) // swagger don't show
+    @Getter @Setter
     private String password;
     @Min(0) @Max(1)
     @Getter @Setter
