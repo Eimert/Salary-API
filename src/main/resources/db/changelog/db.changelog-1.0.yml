@@ -1,4 +1,6 @@
 databaseChangeLog:
   - include:
-        file: 1.0/1.0-000-salaries.yml
+        file: 1.0/1.0-001-salaries.yml
         relativeToChangelogFile: true
+#  - include:
+#      file: db/sql/salaries.sql

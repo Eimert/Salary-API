@@ -1,6 +1,9 @@
 ### other ###
 *.log
 *.versionsBackup
+*.db
+/application.properties
+/config/*
 
 ### artifacts ###
 target/

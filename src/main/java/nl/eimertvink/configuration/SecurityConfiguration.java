@@ -1,24 +1,17 @@
 package nl.eimertvink.configuration;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import javax.sql.DataSource;
-
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true) // enable spring method level authorization
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
-
-    @Autowired
-    private DataSource dataSource;
 
     @Value("${admin.username}")
     private String adminUsername;
@@ -34,16 +27,25 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        super.configure(http);
-        http.csrf().disable()
-            .authorizeRequests();
-// TODO: /login page get shown before swagger. Want it the other way around.
-//            .authorizeRequests()
-//            .antMatchers("/login*", "/swagger-ui.html*").permitAll()
-//            .anyRequest().authenticated()
-//            .and()
-//            .httpBasic()
-//            .authenticationEntryPoint(new RestAuthenticationEntryPoint());
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().mvcMatchers("/swagger-ui.html/**", "/h2-console/**", "/actuator/**");
     }
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+            .csrf()
+                .ignoringAntMatchers("/api/**", "/h2-console/**")
+            .and()
+            .headers().frameOptions().sameOrigin() //allow use of frame to same origin urls
+            .and()
+            .authorizeRequests()
+            .mvcMatchers("/api/**")
+            .authenticated()
+            .and()
+            .httpBasic()
+            .and()
+            .formLogin();
+    }
+
 }

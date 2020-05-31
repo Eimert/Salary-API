@@ -17,6 +17,10 @@ public class EmployeeService {
         this.employeeRepository = employeeRepository;
     }
 
+//    public Page<Employee> findAllByFilter(String filter, Pageable pageable) {
+//        return employeeRepository.findByFilter(filter, pageable);
+//    }
+
     public Page<Employee> findAll(Pageable pageable) {
         return employeeRepository.findAll(pageable);
     }

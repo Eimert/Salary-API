@@ -26,15 +26,14 @@ public class DatasourceConfiguration {
     @ConfigurationProperties(prefix="spring.datasource")
     public HikariDataSource dataSource() { return new HikariDataSource(); }
 
-
     @Bean(name = "liquibaseDS")
     @LiquibaseDataSource
     @ConfigurationProperties(prefix="spring.liquibase")
     public DataSource liquibaseDataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setUrl(env.getProperty("spring.datasource.jdbc-url"));
-        dataSource.setUsername(env.getProperty("spring.datasource.user"));
-        dataSource.setPassword(env.getProperty("spring.datasource.password"));
+        dataSource.setUsername(env.getProperty("spring.liquibase.user"));
+        dataSource.setPassword(env.getProperty("spring.liquibase.password"));
         return dataSource;
     }
 }
