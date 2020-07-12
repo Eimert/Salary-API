@@ -1,4 +1,4 @@
-# Salary-API :heavy_dollar_sign: [![Build Status][1]][2] [![Heroku](https://heroku-badge.herokuapp.com/?app=salary-api)]
+# Salary-API :heavy_dollar_sign: [![Build Status][1]][2] ![Heroku](https://heroku-badge.herokuapp.com/?app=salary-api)
 Personal project to learn Java and Spring Boot. Displays [open data from the City of Chicago](https://data.cityofchicago.org/Administration-Finance/Current-Employee-Names-Salaries-and-Position-Title/xzkq-xp2w). Data set with employee name, position title, department and salary. Data from May 2017.<br>
 <img src="http://www.codecheese.com/wp-content/uploads/heroku-logo.png" height=95 style="float:right"/><br>
 Open [Salary-API on Heroku](https://salaryapi.herokuapp.com/). Warning: the site could be offline at the end of the month, when the free dyno hours have passed.<br>
