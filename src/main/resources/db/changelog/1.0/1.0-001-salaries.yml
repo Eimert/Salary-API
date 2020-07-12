@@ -18,11 +18,23 @@ databaseChangeLog:
                   constraints:
                     nullable: false
               - column:
-                  name: POSITION
+                  name: JOBTITLES
                   type: varchar(255)
               - column:
                   name: DEPARTMENT
                   type: varchar(255)
               - column:
-                  name: SALARY
+                  name: FULLORPARTTIME
+                  type: varchar(255)
+              - column:
+                  name: SALARYORHOURLY
+                  type: varchar(255)
+              - column:
+                  name: TYPICALHOURS
+                  type: int
+              - column:
+                  name: ANNUALSALARY
+                  type: double
+              - column:
+                  name: HOURLYRATE
                   type: double

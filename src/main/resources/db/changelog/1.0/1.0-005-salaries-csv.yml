@@ -1,0 +1,16 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1.0-005-salaries-csv
+      author: eimert
+      changes:
+        -  loadUpdateData:
+             commentLineStartsWith: //
+             encoding: UTF-8
+             file: db/sql/salaries.csv
+             onlyUpdate: false
+             primaryKey: Id
+             quotchar:  '"'
+             relativeToChangelogFile: false
+             separator: ","
+             tableName: salaries
+             usePreparedStatements: true
