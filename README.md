@@ -19,14 +19,16 @@ curl -X GET localhost:8080/api/salaries
 
 ## Technology :wrench:
 Java 11<br>
+Spring<br>
 Spring Boot<br>
 Spring Web<br>
-Spring MVC<br>
-Spring Dependency Injection<br>
+Spring JPA<br>
 Spring Data REST<br>
 Swagger-UI (OpenAPI v3)<br>
-SQLite3<br>
+~~SQLite3~~<br>
+H2<br>
 Liquibase<br>
+Hibernate<br>
 
 ## Development Setup
 [localhost:8080](http://localhost:8484/swagger-ui.html)<br>
