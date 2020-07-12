@@ -39,7 +39,7 @@ Postman<br>
 ## Cloud services :cloud:
 [GitHub](https://github.com/Eimert/Salary-API) :octocat:<br>
 [Travis-CI](https://www.travis-ci.org/Eimert/Salary-API)<br>
-[Heroku](https://salaryapi.herokuapp.com).<br>
+[Heroku](https://salaryapi.herokuapp.com)<br>
 [uptimerobot.com](https://uptimerobot.com/) uptime monitoring; polling every 5 minutes.<br> 
 
 ## Data Set :open_file_folder:
