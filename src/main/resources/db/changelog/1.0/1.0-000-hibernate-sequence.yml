@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1.0-000-hibernate-sequence-00
+      author: eimert
+      changes:
+        - createSequence:
+            sequenceName: HIBERNATE_SEQUENCE
+            incrementBy: 1
+            startValue: 1000

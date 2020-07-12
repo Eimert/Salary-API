@@ -1,4 +1,4 @@
-package nl.eimertvink.rest.controller;
+package nl.eimertvink.controller;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;

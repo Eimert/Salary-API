@@ -1,4 +1,4 @@
-package nl.eimertvink.rest.controller;
+package nl.eimertvink.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

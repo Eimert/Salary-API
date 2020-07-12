@@ -8,34 +8,39 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    @Value("${admin.username}")
+    @Value("${salary.rest.username}")
     private String adminUsername;
-    @Value("${admin.password}")
+    @Value("${salary.rest.password}")
     private String adminPassword;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-
+        PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
         auth.inMemoryAuthentication()
-                .withUser(adminUsername).password(adminPassword).roles("ADMIN");
+            .withUser(adminUsername).password(encoder.encode(adminPassword)).roles("ADMIN");
         auth.inMemoryAuthentication().passwordEncoder(new BCryptPasswordEncoder());
     }
 
     @Override
-    public void configure(WebSecurity web) throws Exception {
-        web.ignoring().mvcMatchers("/swagger-ui.html/**", "/h2-console/**", "/actuator/**");
+    public void configure(WebSecurity web) {
+        web.ignoring().mvcMatchers("/swagger-ui.html/**", "/actuator/**");
+        web.ignoring().antMatchers("/h2-console/**");
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+            .cors()
+            .and()
             .csrf()
-                .ignoringAntMatchers("/api/**", "/h2-console/**")
+            .ignoringAntMatchers("/api/**")
             .and()
             .headers().frameOptions().sameOrigin() //allow use of frame to same origin urls
             .and()

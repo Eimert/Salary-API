@@ -3,5 +3,26 @@ databaseChangeLog:
       id: 1.0-001-salaries
       author: eimert
       changes:
-        - sqlFile:
-            path: db/sql/salaries.sql
+        - createTable:
+            tableName: SALARIES
+            columns:
+              - column:
+                  name: ID
+                  type: int
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: NAME
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: POSITION
+                  type: varchar(255)
+              - column:
+                  name: DEPARTMENT
+                  type: varchar(255)
+              - column:
+                  name: SALARY
+                  type: double
