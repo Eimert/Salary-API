@@ -1,6 +1,6 @@
-# Salary-API :heavy_dollar_sign: [![Build Status][1]][2]
+# Salary-API :heavy_dollar_sign: [![Build Status][1]][2] [![Heroku](https://heroku-badge.herokuapp.com/?app=salary-api)]
 Personal project to learn Java and Spring Boot. Displays [open data from the City of Chicago](https://data.cityofchicago.org/Administration-Finance/Current-Employee-Names-Salaries-and-Position-Title/xzkq-xp2w). Data set with employee name, position title, department and salary. Data from May 2017.<br>
-<img src="http://www.codecheese.com/wp-content/uploads/heroku-logo.png" height=95 style="float:right"><br>
+<img src="http://www.codecheese.com/wp-content/uploads/heroku-logo.png" height=95 style="float:right"/><br>
 Open [Salary-API on Heroku](https://salaryapi.herokuapp.com/). Warning: the site could be offline at the end of the month, when the free dyno hours have passed.<br>
 
 ## Swagger-UI API endpoint discovery
@@ -14,7 +14,7 @@ Optionally pipe output to jq for human-friendly output: `curl ... | jq '.'`.<br>
 Get a pageable employee list:
 ```bash
 curl -X GET https://salaryapi.herokuapp.com/api/salaries
-curl -X GET localhost:8080/api/salaries
+curl -X GET http://localhost:8080/api/salaries
 ```
 
 ## Technology :wrench:
@@ -31,7 +31,8 @@ Liquibase<br>
 Hibernate<br>
 
 ## Development Setup
-[localhost:8080](http://localhost:8484/swagger-ui.html)<br>
+[localhost:8080](http://localhost:8080/)<br>
+[h2-console](http://localhost:8080/h2-console/)<br>
 IntelliJ (with Lombok plugin)<br>
 Postman<br>
 
@@ -44,33 +45,6 @@ Postman<br>
 ## Data Set :open_file_folder:
 ![alt text](https://raw.githubusercontent.com/Eimert/Salary-API/master/src/main/resources/images/City-of-Chicago-Current-Employee-Names-Salaries-and-Position-Titles.png "City of Chicago")<br>
 :link: [Data source](https://data.cityofchicago.org/Administration-Finance/Current-Employee-Names-Salaries-and-Position-Title/xzkq-xp2w).
-
-## SQLite database :floppy_disk:
-
-```
-eimert@EIM salary-api $ sqlite3 salaries.db
-SQLite version 3.11.0 2016-02-15 17:29:24
-Enter ".help" for usage hints.
-sqlite> .table
-salaries
-sqlite> select * from salaries LIMIT 1;
-Name|Position Title|Department|Employee Annual Salary
-sqlite> PRAGMA table_info (salaries);
-0           name                    0                       0
-1           position                0                       0
-2           department              0                       0
-3           salary                  0                       0
-sqlite> select id,* from salaries limit 0,3;
-id          name             position          department   salary
-----------  ---------------  ----------------  -----------  ----------
-1           AARON,  ELVIA J  WATER RATE TAKER  WATER MGMNT  88968.0
-2           AARON,  JEFFERY  POLICE OFFICER    POLICE       80778.0
-3           AARON,  KARINA   POLICE OFFICER    POLICE       80778.0
-
-.quit
-```
-Database reset: `sqlite3 salaries.db < salaries.sql`<br>
-Last insert: `sqlite3 salaries.db 'select max(id),* from salaries'`
 
 ## References :books:
 
