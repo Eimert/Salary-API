@@ -49,8 +49,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .authenticated()
             .and()
             .httpBasic()
-            .and()
-            .formLogin();
+            .realmName("Use admin admin for authentication");
     }
 
 }
