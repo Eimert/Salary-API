@@ -2,14 +2,12 @@
 [![Build Status][1]][2] 
 [![Heroku][3]][4]
 <br>
-Personal project to learn Java and Spring Boot. Displays [open data from the City of Chicago](https://data.cityofchicago.org/Administration-Finance/Current-Employee-Names-Salaries-and-Position-Title/xzkq-xp2w).
-<br>
-Data set from May 2017 with:
+Personal project to learn Java and Spring Boot. Displays [open data from the City of Chicago](https://data.cityofchicago.org/Administration-Finance/Current-Employee-Names-Salaries-and-Position-Title/xzkq-xp2w). Data set from May 2017 with:
 - employee name, 
 - position,
 - department 
 - and salary.
-<br>
+
 Open [Salary-API on Heroku](https://salaryapi.herokuapp.com/). Warning: the site could be slow or offline when free dyno hours have elapsed.<br>
 
 ## Swagger-UI API endpoint discovery
