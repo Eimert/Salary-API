@@ -1,4 +1,4 @@
-# Salary-API :heavy_dollar_sign: [![Build Status][1]][2] ![Heroku](https://heroku-badge.herokuapp.com/?app=salary-api)
+# Salary-API :heavy_dollar_sign: ![Build Status][1]][2] ![Heroku][3][4]
 Personal project to learn Java and Spring Boot. Displays [open data from the City of Chicago](https://data.cityofchicago.org/Administration-Finance/Current-Employee-Names-Salaries-and-Position-Title/xzkq-xp2w). Data set with employee name, position title, department and salary. Data from May 2017.<br>
 <img src="http://www.codecheese.com/wp-content/uploads/heroku-logo.png" height=95 style="float:right"/><br>
 Open [Salary-API on Heroku](https://salaryapi.herokuapp.com/). Warning: the site could be offline at the end of the month, when the free dyno hours have passed.<br>
@@ -47,8 +47,10 @@ Postman<br>
 :link: [Data source](https://data.cityofchicago.org/Administration-Finance/Current-Employee-Names-Salaries-and-Position-Title/xzkq-xp2w).
 
 ## References :books:
+- API Authentication steps are described at [Baeldung](https://www.baeldung.com/securing-a-restful-web-service-with-spring-security#ch_3_7)<br>
+- Spring cloud deployment [docs](https://docs.spring.io/spring-boot/docs/current/reference/html/cloud-deployment.html)<br>
 
 [1]: https://travis-ci.org/Eimert/Salary-API.svg?branch=master
-[2]: http://www.travis-ci.org/Eimert/Salary-API
-[3]: API Authentication steps are described at [Baeldung](https://www.baeldung.com/securing-a-restful-web-service-with-spring-security#ch_3_7)<br>
-[4]: Spring cloud deployment [docs](https://docs.spring.io/spring-boot/docs/current/reference/html/cloud-deployment.html)<br>
+[2]: https://www.travis-ci.org/Eimert/Salary-API
+[3]: https://heroku-badge.herokuapp.com/?app=salary-api
+[4]: https://salaryapi.herokuapp.com/
