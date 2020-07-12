@@ -5,7 +5,7 @@
 deploy:
   provider: heroku
   app: salaryapi
-  api-key: $HEROKU_PRODUCTION_API_KEY
+  api_key: $HEROKU_PRODUCTION_API_KEY
 sudo: false
 language: java
 jdk:
