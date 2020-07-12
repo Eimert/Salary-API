@@ -54,5 +54,5 @@ Postman<br>
 
 [1]: https://travis-ci.org/Eimert/Salary-API.svg?branch=master
 [2]: https://www.travis-ci.org/Eimert/Salary-API
-[3]: https://heroku-badge.herokuapp.com/?app=salary-api
+[3]: https://heroku-badge.herokuapp.com/?app=salaryapi
 [4]: https://salaryapi.herokuapp.com/
