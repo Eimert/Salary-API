@@ -30,7 +30,7 @@ public class Salaries extends AbstractEntity {
     private String salaryOrHourly;
     @Getter @Setter
     @Column(name = "typicalhours")
-    private String typicalHours;
+    private Integer typicalHours;
     @Getter @Setter
     @Column(name = "annualsalary")
     private Double annualSalary;
