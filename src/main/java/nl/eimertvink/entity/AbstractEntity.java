@@ -22,7 +22,7 @@ public abstract class AbstractEntity {
 //    protected int id;
 
     // generates sequenceName
-//    @SequenceGenerator(name = "generator", sequenceName = "other", allocationSize = 1)
+//    @SequenceGenerator(name = "generator", sequenceName = "HIBERNATE_SEQUENCE", allocationSize = 1)
 //    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generator")
 //    protected int id;
 

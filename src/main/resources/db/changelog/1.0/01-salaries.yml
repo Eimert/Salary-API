@@ -45,11 +45,11 @@ databaseChangeLog:
         -  loadUpdateData:
              commentLineStartsWith: //
              encoding: UTF-8
-             file: db/changelog/1.0/initialload/01-salaries.csv
+             file: initialload/01-salaries.csv
              onlyUpdate: false
              primaryKey: Id
              quotchar:  '"'
-             relativeToChangelogFile: false
+             relativeToChangelogFile: true
              separator: ","
              tableName: salaries
              usePreparedStatements: true
