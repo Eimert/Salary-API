@@ -1,15 +1,7 @@
 databaseChangeLog:
   - include:
-      file: 1.0/1.0-000-hibernate-sequence.yml
+      file: 1.0/00-hibernate-sequence.yml
       relativeToChangelogFile: true
   - include:
-      file: 1.0/1.0-001-salaries.yml
+      file: 1.0/01-salaries.yml
       relativeToChangelogFile: true
-  - include:
-      file: 1.0/1.0-005-salaries-csv.yml
-      relativeToChangelogFile: true
-#  - include:
-#      file: db/sql/salaries-insert.sql
-
-#  - include:
-#      file: db/sql/salaries.csv

@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: 1.0-001-salaries
+      id: 1.0/01-salaries
       author: eimert
       changes:
         - createTable:
@@ -38,3 +38,18 @@ databaseChangeLog:
               - column:
                   name: HOURLYRATE
                   type: double
+  - changeSet:
+      id: 1.0/01-salaries-initialload
+      author: eimert
+      changes:
+        -  loadUpdateData:
+             commentLineStartsWith: //
+             encoding: UTF-8
+             file: db/changelog/1.0/initialload/01-salaries.csv
+             onlyUpdate: false
+             primaryKey: Id
+             quotchar:  '"'
+             relativeToChangelogFile: false
+             separator: ","
+             tableName: salaries
+             usePreparedStatements: true
