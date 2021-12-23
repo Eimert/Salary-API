@@ -90,7 +90,6 @@
 			<version>2.17.0</version>
 		</dependency>
 
-
 		<!-- TEST dependencies -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
