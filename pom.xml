@@ -14,6 +14,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<springdoc.version>1.6.3</springdoc.version>
 	</properties>
 
 	<parent>
@@ -65,12 +66,12 @@
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-ui</artifactId>
-			<version>1.6.3</version>
+			<version>${springdoc.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-data-rest</artifactId>
-			<version>1.6.3</version>
+			<version>${springdoc.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.h2database</groupId>
